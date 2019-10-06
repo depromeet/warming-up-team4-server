@@ -1,0 +1,115 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'com.google.protobuf' version '0.8.9'
+    id 'java'
+    id 'idea'
+}
+
+group = 'com.depromeet'
+version = '0.0.1'
+
+ext {
+    javaVersion = JavaVersion.VERSION_12
+
+    versions = [
+            'grpc'              : '1.+',
+            'protobuf'          : '3.+',
+            'spring-boot-grpc'   : '2.5.+',
+    ]
+}
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+sourceSets {
+    main {
+        proto {
+            srcDir 'warming-up-team4-proto'
+        }
+
+        java {
+            srcDir 'src/main/java'
+            srcDir 'src/protobuf/main/java'
+            srcDir 'src/protobuf/main/grpc'
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.+'
+    }
+
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.+'
+        }
+    }
+
+    generatedFilesBaseDir = "$projectDir/src/protobuf"
+
+    generateProtoTasks {
+        all()*.plugins {
+            grpc { }
+        }
+
+        ofSourceSet('main')
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Junit
+    testImplementation 'org.junit.platform:junit-platform-commons'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        exclude group: 'junit', module: 'junit'
+    }
+
+    // Spring Boot
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation(group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: versions['spring-boot-grpc'])
+
+    // H2
+    runtimeOnly 'com.h2database:h2'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api'
+    implementation 'org.slf4j:jcl-over-slf4j'
+
+    implementation 'ch.qos.logback:logback-classic'
+    implementation 'ch.qos.logback:logback-core'
+
+    // Protobuf
+    implementation(group: 'com.google.protobuf', name: 'protobuf-java', version: versions['protobuf'])
+
+    // gRPC
+    implementation(group: 'io.grpc', name: 'grpc-netty-shaded', version: versions['grpc'])
+    implementation(group: 'io.grpc', name: 'grpc-protobuf', version: versions['grpc'])
+    implementation(group: 'io.grpc', name: 'grpc-stub', version: versions['grpc'])
+
+}

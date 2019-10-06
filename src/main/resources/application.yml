@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: warming-up-team4-server
+
+grpc:
+  server:
+    port: 9090
