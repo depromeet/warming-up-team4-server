@@ -4,6 +4,7 @@ plugins {
     id 'com.google.protobuf' version '0.8.9'
     id 'java'
     id 'idea'
+    id 'jacoco'
 }
 
 group = 'com.depromeet'
@@ -28,6 +29,7 @@ configurations {
     }
 }
 
+// protobuf
 sourceSets {
     main {
         proto {
@@ -63,6 +65,23 @@ protobuf {
         ofSourceSet('main')
     }
 }
+
+
+// jacoco
+jacoco {
+    toolVersion = "0.8.4"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+check.dependsOn jacocoTestReport
 
 test {
     useJUnitPlatform()
