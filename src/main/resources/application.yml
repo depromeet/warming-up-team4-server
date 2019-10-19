@@ -1,7 +1,22 @@
 spring:
+  profiles:
+    active: local
   application:
     name: warming-up-team4-server
 
 grpc:
   server:
     port: 9090
+
+custom:
+  application:
+    name: warming-up-team4-server
+    version: 0.0.1
+  security:
+    password-encode-strength: 6
+    jwt:
+      secret-key: SeCrEtKeY
+      refresh-term: 30s
+      expired-term: 1m
+      jwt-id-length: 128
+      header-name: authorization

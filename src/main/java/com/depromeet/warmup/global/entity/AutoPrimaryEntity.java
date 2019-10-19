@@ -12,5 +12,5 @@ public abstract class AutoPrimaryEntity {
 
     @Getter
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 }

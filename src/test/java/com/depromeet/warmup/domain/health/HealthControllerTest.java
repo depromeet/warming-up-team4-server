@@ -1,7 +1,7 @@
 package com.depromeet.warmup.domain.health;
 
-import com.depromeet.warmup.grpc.HealthGrpc;
-import com.depromeet.warmup.grpc.HealthOuterClass;
+import com.depromeet.warmup.grpc.service.HealthGrpc;
+import com.depromeet.warmup.grpc.service.HealthOuterClass;
 import com.depromeet.warmup.support.BaseSupports;
 import io.grpc.stub.StreamObserver;
 import org.junit.jupiter.api.Test;
@@ -32,7 +32,7 @@ class HealthControllerTest extends BaseSupports {
             }
 
             @Override
-            public void onError(Throwable t) {
+            public void onError(final Throwable t) {
                 throw new RuntimeException(t);
             }
 

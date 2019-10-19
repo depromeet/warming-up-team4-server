@@ -1,7 +1,7 @@
 package com.depromeet.warmup.domain.system;
 
-import com.depromeet.warmup.grpc.Int64OuterClass;
-import com.depromeet.warmup.grpc.SystemGrpc;
+import com.depromeet.warmup.grpc.service.SystemGrpc;
+import com.depromeet.warmup.grpc.vo.Int64OuterClass;
 import com.depromeet.warmup.utils.Thrower;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
