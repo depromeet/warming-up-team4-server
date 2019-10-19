@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.9.RELEASE'
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'com.google.protobuf' version '0.8.9'
     id 'java'
@@ -14,9 +14,14 @@ ext {
     javaVersion = JavaVersion.VERSION_12
 
     versions = [
-            'grpc'              : '1.+',
-            'protobuf'          : '3.+',
-            'spring-boot-grpc'   : '2.5.+',
+            'grpc'                  : '1.+',
+            'protobuf'              : '3.+',
+            'embedded-redis'        : '0.7.+',
+            'spring-boot-grpc'      : '2.5.+',
+            'spring-boot-redisson'  : '3.11.+',
+            'uuid'                  : '3.2.+',
+            'java-jwt'              : '3.+',
+            'reactor'               : '3.3.+'
     ]
 }
 
@@ -87,6 +92,12 @@ test {
     useJUnitPlatform()
 }
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 repositories {
     mavenCentral()
 }
@@ -95,6 +106,8 @@ dependencies {
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 
     // Junit
     testImplementation 'org.junit.platform:junit-platform-commons'
@@ -111,7 +124,7 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation(group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: versions['spring-boot-grpc'])
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
     // H2
     runtimeOnly 'com.h2database:h2'
@@ -127,8 +140,25 @@ dependencies {
     implementation(group: 'com.google.protobuf', name: 'protobuf-java', version: versions['protobuf'])
 
     // gRPC
+    implementation(group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: versions['spring-boot-grpc'])
+
     implementation(group: 'io.grpc', name: 'grpc-netty-shaded', version: versions['grpc'])
     implementation(group: 'io.grpc', name: 'grpc-protobuf', version: versions['grpc'])
     implementation(group: 'io.grpc', name: 'grpc-stub', version: versions['grpc'])
 
+    // Reactor
+    implementation(group: 'io.projectreactor', name: 'reactor-core', version: versions['reactor'])
+    testImplementation(group: 'io.projectreactor', name: 'reactor-test', version: versions['reactor'])
+
+    // Redisson
+//    implementation(group: 'org.redisson', name: 'redisson-spring-boot-starter', version: versions['spring-boot-redisson'])
+
+    // Redis
+    implementation(group: 'it.ozimov', name: 'embedded-redis', version: versions['embedded-redis'])
+
+    // UUID
+    implementation(group: 'com.fasterxml.uuid', name: 'java-uuid-generator', version: versions['uuid'])
+
+    // JWT
+    implementation(group: 'com.auth0', name: 'java-jwt', version: versions['java-jwt'])
 }
