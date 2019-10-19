@@ -52,16 +52,14 @@ class JwtManagerTest {
 
     @Test
     void isInvalid() {
-        for (var i = 1; i < 100; i++) {
-            // given
-            final var randomString = RandomUtils.getSecureString(RandomUtils.randomInt(200));
+        // given
+        final var randomString = RandomUtils.getSecureString(RandomUtils.randomInt(200));
 
-            // when
-            final var isValid = jwtManager.isValid(randomString);
+        // when
+        final var isValid = jwtManager.isValid(randomString);
 
-            // then
-            assertThat(isValid).isFalse();
-        }
+        // then
+        assertThat(isValid).isFalse();
     }
 
     @Test
