@@ -23,7 +23,7 @@ class UniversityRepositoryTest extends RepositorySupports {
     }
 
     @Test
-    void findByEmail() {
+    void findByEmailDomain() {
         // given
         final var emailDomain = "gmail.com";
         final var university = University.builder()

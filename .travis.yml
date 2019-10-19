@@ -6,8 +6,6 @@ jdk:
 
 before_script:
   - chmod +x gradlew
-  - git submodule update
-  - ./gradlew generateProto
 
 script:
   - ./gradlew check

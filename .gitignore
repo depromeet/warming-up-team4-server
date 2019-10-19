@@ -116,7 +116,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-## protobuf
-src/protobuf
-
 !gradle/wrapper/gradle-wrapper.jar
