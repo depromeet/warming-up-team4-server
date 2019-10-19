@@ -1,0 +1,11 @@
+spring:
+  profiles: local
+  jpa:
+    open-in-view: false
+    show-sql: true
+    format-sql: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
