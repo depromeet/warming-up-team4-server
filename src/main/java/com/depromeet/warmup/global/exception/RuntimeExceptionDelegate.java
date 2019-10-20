@@ -8,7 +8,8 @@ import io.grpc.Status;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class RuntimeExceptionDelegate<ReqT, RespT> extends ForwardingServerCallListener.SimpleForwardingServerCallListener<ReqT> {
+public class RuntimeExceptionDelegate<ReqT, RespT>
+        extends ForwardingServerCallListener.SimpleForwardingServerCallListener<ReqT> {
 
     private final ServerCall<ReqT, RespT> call;
 

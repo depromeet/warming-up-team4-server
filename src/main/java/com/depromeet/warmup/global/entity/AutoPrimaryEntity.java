@@ -11,6 +11,7 @@ import javax.persistence.MappedSuperclass;
 public abstract class AutoPrimaryEntity {
 
     @Getter
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 }

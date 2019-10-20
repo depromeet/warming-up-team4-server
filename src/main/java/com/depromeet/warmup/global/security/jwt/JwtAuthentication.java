@@ -21,7 +21,7 @@ public class JwtAuthentication implements Authentication {
     private DecodedJWT details;
 
     @Getter
-    private String name;
+    private String name; // email
 
     private JwtAuthentication(final String jwtToken) {
         this.credentials = jwtToken;

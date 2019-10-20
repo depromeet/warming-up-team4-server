@@ -11,7 +11,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.24.0)",
-    comments = "Source: service/barter.proto")
+    comments = "Source: barter.proto")
 public final class BarterGrpc {
 
   private BarterGrpc() {}
