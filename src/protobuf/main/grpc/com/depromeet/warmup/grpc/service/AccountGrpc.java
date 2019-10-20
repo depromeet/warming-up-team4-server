@@ -11,7 +11,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.24.0)",
-    comments = "Source: service/account.proto")
+    comments = "Source: account.proto")
 public final class AccountGrpc {
 
   private AccountGrpc() {}
@@ -20,28 +20,28 @@ public final class AccountGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest,
-      com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse> getSignUpMethod;
+      com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication> getSignUpMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SignUp",
       requestType = com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest.class,
-      responseType = com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse.class,
+      responseType = com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest,
-      com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse> getSignUpMethod() {
-    io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest, com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse> getSignUpMethod;
+      com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication> getSignUpMethod() {
+    io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest, com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication> getSignUpMethod;
     if ((getSignUpMethod = AccountGrpc.getSignUpMethod) == null) {
       synchronized (AccountGrpc.class) {
         if ((getSignUpMethod = AccountGrpc.getSignUpMethod) == null) {
           AccountGrpc.getSignUpMethod = getSignUpMethod =
-              io.grpc.MethodDescriptor.<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest, com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest, com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SignUp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse.getDefaultInstance()))
+                  com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication.getDefaultInstance()))
               .setSchemaDescriptor(new AccountMethodDescriptorSupplier("SignUp"))
               .build();
         }
@@ -145,7 +145,7 @@ public final class AccountGrpc {
      * </pre>
      */
     public void signUp(com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest request,
-        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication> responseObserver) {
       asyncUnimplementedUnaryCall(getSignUpMethod(), responseObserver);
     }
 
@@ -176,7 +176,7 @@ public final class AccountGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest,
-                com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse>(
+                com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication>(
                   this, METHODID_SIGN_UP)))
           .addMethod(
             getSignInMethod(),
@@ -220,7 +220,7 @@ public final class AccountGrpc {
      * </pre>
      */
     public void signUp(com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest request,
-        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSignUpMethod(), getCallOptions()), request, responseObserver);
     }
@@ -271,7 +271,7 @@ public final class AccountGrpc {
      * 회원가입
      * </pre>
      */
-    public com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse signUp(com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest request) {
+    public com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication signUp(com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest request) {
       return blockingUnaryCall(
           getChannel(), getSignUpMethod(), getCallOptions(), request);
     }
@@ -320,7 +320,7 @@ public final class AccountGrpc {
      * 회원가입
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse> signUp(
+    public com.google.common.util.concurrent.ListenableFuture<com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication> signUp(
         com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSignUpMethod(), getCallOptions()), request);
@@ -372,7 +372,7 @@ public final class AccountGrpc {
       switch (methodId) {
         case METHODID_SIGN_UP:
           serviceImpl.signUp((com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpRequest) request,
-              (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.AccountOuterClass.SignUpResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.Authentication>) responseObserver);
           break;
         case METHODID_SIGN_IN:
           serviceImpl.signIn((com.depromeet.warmup.grpc.service.AccountOuterClass.SignInRequest) request,

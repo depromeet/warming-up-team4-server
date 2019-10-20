@@ -8,10 +8,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class DateAuditEntity extends AutoPrimaryEntity {
+public abstract class DateAuditEntity extends AutoPrimaryEntity {
 
     @Getter
     @CreatedDate
@@ -20,4 +21,12 @@ public class DateAuditEntity extends AutoPrimaryEntity {
     @Getter
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
+
+    public long getCreatedDateMillis() {
+        return createdDate.toEpochSecond(ZoneOffset.UTC);
+    }
+
+    public long getLastModifiedDateMillis() {
+        return lastModifiedDate.toEpochSecond(ZoneOffset.UTC);
+    }
 }

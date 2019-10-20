@@ -2,7 +2,7 @@ package com.depromeet.warmup.global.exception;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor(staticName = "status")
 public class ServiceRuntimeException extends RuntimeException implements SystemException {
 
     private final ServiceStatus status;

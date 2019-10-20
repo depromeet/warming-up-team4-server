@@ -1,8 +1,8 @@
 package com.depromeet.warmup.domain.item;
 
+import com.depromeet.warmup.global.entity.ProtobufConverter;
 import com.depromeet.warmup.grpc.service.ItemGrpc;
 import com.depromeet.warmup.grpc.service.ItemOuterClass;
-import com.depromeet.warmup.utils.Thrower;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.server.service.GrpcService;
@@ -11,19 +11,18 @@ import net.devh.boot.grpc.server.service.GrpcService;
 @GrpcService
 class ItemController extends ItemGrpc.ItemImplBase {
 
-    private final ItemConverter itemConverter;
     private final ItemService itemService;
-
-    // TODO: validate
 
     @Override
     public void save(final ItemOuterClass.SaveRequest request,
                      final StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> responseObserver) {
-        itemConverter.convert(request)
-                .flatMap(itemService::save)
-                .map(Item::toProtoBuf)
+        itemService.save(Item.builder()
+                .name(request.getName())
+                .description(request.getDescription())
+                .build())
+                .map(ProtobufConverter::toProtoBuf)
                 .subscribe(responseObserver::onNext,
-                        Thrower::just,
+                        responseObserver::onError,
                         responseObserver::onCompleted);
     }
 
@@ -31,9 +30,9 @@ class ItemController extends ItemGrpc.ItemImplBase {
     public void findAll(final ItemOuterClass.FindAllRequest request,
                         final StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> responseObserver) {
         itemService.findAll()
-                .map(Item::toProtoBuf)
+                .map(ProtobufConverter::toProtoBuf)
                 .subscribe(responseObserver::onNext,
-                        Thrower::just,
+                        responseObserver::onError,
                         responseObserver::onCompleted);
     }
 
@@ -41,9 +40,9 @@ class ItemController extends ItemGrpc.ItemImplBase {
     public void findById(final ItemOuterClass.FindByIdRequest request,
                          final StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> responseObserver) {
         itemService.findById(request.getId())
-                .map(Item::toProtoBuf)
+                .map(ProtobufConverter::toProtoBuf)
                 .subscribe(responseObserver::onNext,
-                        Thrower::just,
+                        responseObserver::onError,
                         responseObserver::onCompleted);
     }
 }

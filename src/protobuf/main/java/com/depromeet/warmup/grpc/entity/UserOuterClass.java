@@ -19,16 +19,16 @@ public final class UserOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <code>string nickname = 1;</code>
+     * @return The nickname.
      */
-    java.lang.String getName();
+    java.lang.String getNickname();
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <code>string nickname = 1;</code>
+     * @return The bytes for nickname.
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getNicknameBytes();
 
     /**
      * <code>.warmup.entity.University university = 2;</code>
@@ -74,7 +74,7 @@ public final class UserOuterClass {
       super(builder);
     }
     private User() {
-      name_ = "";
+      nickname_ = "";
     }
 
     @java.lang.Override
@@ -110,7 +110,7 @@ public final class UserOuterClass {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              nickname_ = s;
               break;
             }
             case 18: {
@@ -168,36 +168,36 @@ public final class UserOuterClass {
               com.depromeet.warmup.grpc.entity.UserOuterClass.User.class, com.depromeet.warmup.grpc.entity.UserOuterClass.User.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    public static final int NICKNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object nickname_;
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <code>string nickname = 1;</code>
+     * @return The nickname.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getNickname() {
+      java.lang.Object ref = nickname_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        nickname_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <code>string nickname = 1;</code>
+     * @return The bytes for nickname.
      */
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getNicknameBytes() {
+      java.lang.Object ref = nickname_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        nickname_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -261,8 +261,8 @@ public final class UserOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      if (!getNicknameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nickname_);
       }
       if (university_ != null) {
         output.writeMessage(2, getUniversity());
@@ -282,8 +282,8 @@ public final class UserOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      if (!getNicknameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nickname_);
       }
       if (university_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -312,8 +312,8 @@ public final class UserOuterClass {
       }
       com.depromeet.warmup.grpc.entity.UserOuterClass.User other = (com.depromeet.warmup.grpc.entity.UserOuterClass.User) obj;
 
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getNickname()
+          .equals(other.getNickname())) return false;
       if (hasUniversity() != other.hasUniversity()) return false;
       if (hasUniversity()) {
         if (!getUniversity()
@@ -333,8 +333,8 @@ public final class UserOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getNickname().hashCode();
       if (hasUniversity()) {
         hash = (37 * hash) + UNIVERSITY_FIELD_NUMBER;
         hash = (53 * hash) + getUniversity().hashCode();
@@ -482,7 +482,7 @@ public final class UserOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        name_ = "";
+        nickname_ = "";
 
         if (universityBuilder_ == null) {
           university_ = null;
@@ -520,7 +520,7 @@ public final class UserOuterClass {
       @java.lang.Override
       public com.depromeet.warmup.grpc.entity.UserOuterClass.User buildPartial() {
         com.depromeet.warmup.grpc.entity.UserOuterClass.User result = new com.depromeet.warmup.grpc.entity.UserOuterClass.User(this);
-        result.name_ = name_;
+        result.nickname_ = nickname_;
         if (universityBuilder_ == null) {
           result.university_ = university_;
         } else {
@@ -576,8 +576,8 @@ public final class UserOuterClass {
 
       public Builder mergeFrom(com.depromeet.warmup.grpc.entity.UserOuterClass.User other) {
         if (other == com.depromeet.warmup.grpc.entity.UserOuterClass.User.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getNickname().isEmpty()) {
+          nickname_ = other.nickname_;
           onChanged();
         }
         if (other.hasUniversity()) {
@@ -618,78 +618,78 @@ public final class UserOuterClass {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object nickname_ = "";
       /**
-       * <code>string name = 1;</code>
-       * @return The name.
+       * <code>string nickname = 1;</code>
+       * @return The nickname.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getNickname() {
+        java.lang.Object ref = nickname_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          nickname_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 1;</code>
-       * @return The bytes for name.
+       * <code>string nickname = 1;</code>
+       * @return The bytes for nickname.
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getNicknameBytes() {
+        java.lang.Object ref = nickname_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          nickname_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 1;</code>
-       * @param value The name to set.
+       * <code>string nickname = 1;</code>
+       * @param value The nickname to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
+      public Builder setNickname(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        nickname_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string nickname = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
+      public Builder clearNickname() {
         
-        name_ = getDefaultInstance().getName();
+        nickname_ = getDefaultInstance().getNickname();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 1;</code>
-       * @param value The bytes for name to set.
+       * <code>string nickname = 1;</code>
+       * @param value The bytes for nickname to set.
        * @return This builder for chaining.
        */
-      public Builder setNameBytes(
+      public Builder setNicknameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        nickname_ = value;
         onChanged();
         return this;
       }
@@ -940,11 +940,11 @@ public final class UserOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\021entity/user.proto\022\rwarmup.entity\032\027enti" +
-      "ty/university.proto\"u\n\004User\022\014\n\004name\030\001 \001(" +
-      "\t\022-\n\nuniversity\030\002 \001(\0132\031.warmup.entity.Un" +
-      "iversity\022\024\n\014created_date\030\003 \001(\003\022\032\n\022last_m" +
-      "odified_date\030\004 \001(\003B\"\n com.depromeet.warm" +
-      "up.grpc.entityb\006proto3"
+      "ty/university.proto\"y\n\004User\022\020\n\010nickname\030" +
+      "\001 \001(\t\022-\n\nuniversity\030\002 \001(\0132\031.warmup.entit" +
+      "y.University\022\024\n\014created_date\030\003 \001(\003\022\032\n\022la" +
+      "st_modified_date\030\004 \001(\003B\"\n com.depromeet." +
+      "warmup.grpc.entityb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -956,7 +956,7 @@ public final class UserOuterClass {
     internal_static_warmup_entity_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_warmup_entity_User_descriptor,
-        new java.lang.String[] { "Name", "University", "CreatedDate", "LastModifiedDate", });
+        new java.lang.String[] { "Nickname", "University", "CreatedDate", "LastModifiedDate", });
     com.depromeet.warmup.grpc.entity.UniversityOuterClass.getDescriptor();
   }
 

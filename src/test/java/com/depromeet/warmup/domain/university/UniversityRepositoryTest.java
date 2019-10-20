@@ -1,6 +1,6 @@
 package com.depromeet.warmup.domain.university;
 
-import com.depromeet.warmup.support.RepositorySupports;
+import com.depromeet.warmup.support.BaseSupports;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class UniversityRepositoryTest extends RepositorySupports {
+class UniversityRepositoryTest extends BaseSupports {
 
     @Autowired
     private UniversityRepository universityRepository;

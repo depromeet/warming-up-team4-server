@@ -1,6 +1,8 @@
 package com.depromeet.warmup.global.security;
 
 import com.depromeet.warmup.domain.authentication.AuthenticationRepository;
+import com.depromeet.warmup.global.exception.ServiceRuntimeException;
+import com.depromeet.warmup.global.exception.ServiceStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,9 +17,8 @@ public class SecurityUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
-        // TODO: error handling
         return authenticationRepository.findByEmail(email)
                 .map(SecurityUser::of)
-                .orElseThrow();
+                .orElseThrow(() -> ServiceRuntimeException.status(ServiceStatus.AUTHENTICATION_NOT_FOUND));
     }
 }

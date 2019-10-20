@@ -2,7 +2,6 @@ package com.depromeet.warmup.domain.system;
 
 import com.depromeet.warmup.grpc.service.SystemGrpc;
 import com.depromeet.warmup.grpc.vo.Int64OuterClass;
-import com.depromeet.warmup.utils.Thrower;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +19,7 @@ public class SystemController extends SystemGrpc.SystemImplBase {
         systemService.getCurrentTimeMillis()
                 .map(this::wrap)
                 .subscribe(responseObserver::onNext,
-                        Thrower::just,
+                        responseObserver::onError,
                         responseObserver::onCompleted);
     }
 
