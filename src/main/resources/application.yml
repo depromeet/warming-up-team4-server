@@ -19,4 +19,3 @@ custom:
       refresh-term: 30s
       expired-term: 1m
       jwt-id-length: 128
-      header-name: authorization
