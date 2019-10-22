@@ -4,7 +4,7 @@ import com.depromeet.warmup.domain.authentication.Authentication;
 import com.depromeet.warmup.domain.university.University;
 import com.depromeet.warmup.domain.university.UniversityService;
 import com.depromeet.warmup.global.exception.ServiceRuntimeException;
-import com.depromeet.warmup.support.BaseSupports;
+import com.depromeet.warmup.support.RedisBaseSupports;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,7 +12,7 @@ import reactor.test.StepVerifier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class AccountServiceTest extends BaseSupports {
+class AccountServiceTest extends RedisBaseSupports {
 
     private static final String SYMBOL_OF_EMAIL_DOMAIN = "@";
     private static final int POSITION_OF_EMAIL_DOMAIN = 1;
