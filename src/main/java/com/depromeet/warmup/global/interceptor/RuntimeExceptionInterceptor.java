@@ -7,13 +7,14 @@ import io.grpc.ServerCallHandler;
 import io.grpc.ServerInterceptor;
 import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.server.interceptor.GrpcGlobalServerInterceptor;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 @RequiredArgsConstructor
-@Order(Ordered.LOWEST_PRECEDENCE)
+@Order(RuntimeExceptionInterceptor.ORDER)
 @GrpcGlobalServerInterceptor
 public class RuntimeExceptionInterceptor implements ServerInterceptor {
+
+    static final int ORDER = ExceptionInterceptor.ORDER - 1;
 
     @Override
     public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(final ServerCall<ReqT, RespT> call,

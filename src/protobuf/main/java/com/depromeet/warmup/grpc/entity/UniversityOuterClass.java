@@ -263,7 +263,8 @@ public final class UniversityOuterClass {
           .equals(other.getName())) return false;
       if (!getEmailDomain()
           .equals(other.getEmailDomain())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override

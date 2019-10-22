@@ -256,7 +256,8 @@ public final class BarterOuterClass {
           != other.getToItemId()) return false;
       if (!getMessage()
           .equals(other.getMessage())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -866,7 +867,8 @@ public final class BarterOuterClass {
 
       if (getBarterRequestId()
           != other.getBarterRequestId()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override

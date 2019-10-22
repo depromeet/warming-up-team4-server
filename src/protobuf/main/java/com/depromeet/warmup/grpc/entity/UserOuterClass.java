@@ -323,7 +323,8 @@ public final class UserOuterClass {
           != other.getCreatedDate()) return false;
       if (getLastModifiedDate()
           != other.getLastModifiedDate()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override

@@ -346,7 +346,8 @@ public final class ItemOuterClass {
           .equals(other.getDescription())) return false;
       if (!getImageUrlsList()
           .equals(other.getImageUrlsList())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1126,7 +1127,8 @@ public final class ItemOuterClass {
           != other.getSize()) return false;
       if (getLastId()
           != other.getLastId()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1649,7 +1651,8 @@ public final class ItemOuterClass {
 
       if (getId()
           != other.getId()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override

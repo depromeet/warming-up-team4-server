@@ -1,6 +1,7 @@
 package com.depromeet.warmup.domain.item;
 
 import com.depromeet.warmup.global.entity.ProtobufConverter;
+import com.depromeet.warmup.global.interceptor.AuthInterceptor;
 import com.depromeet.warmup.grpc.service.ItemGrpc;
 import com.depromeet.warmup.grpc.service.ItemOuterClass;
 import io.grpc.stub.StreamObserver;
@@ -8,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 @RequiredArgsConstructor
-@GrpcService
+@GrpcService(interceptors = {AuthInterceptor.class})
 class ItemController extends ItemGrpc.ItemImplBase {
 
     private final ItemService itemService;

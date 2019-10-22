@@ -230,7 +230,8 @@ public final class ImageOuterClass {
           != other.getId()) return false;
       if (!getUrl()
           .equals(other.getUrl())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override

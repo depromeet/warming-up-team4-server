@@ -129,7 +129,7 @@ public final class BarterStatusOuterClass {
 
     private final int value;
 
-    BarterStatus(int value) {
+    private BarterStatus(int value) {
       this.value = value;
     }
 

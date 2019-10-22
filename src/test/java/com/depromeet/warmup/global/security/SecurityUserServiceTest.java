@@ -2,16 +2,10 @@ package com.depromeet.warmup.global.security;
 
 import com.depromeet.warmup.domain.authentication.Authentication;
 import com.depromeet.warmup.domain.authentication.AuthenticationRepository;
-import com.depromeet.warmup.global.exception.ServiceRuntimeException;
 import com.depromeet.warmup.support.BaseSupports;
-import com.depromeet.warmup.utils.random.RandomUtils;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class SecurityUserServiceTest extends BaseSupports {
 
@@ -23,9 +17,6 @@ class SecurityUserServiceTest extends BaseSupports {
     @Autowired
     private AuthenticationRepository authenticationRepository;
 
-    @Autowired
-    private SecurityUserService securityUserService;
-
     @BeforeEach
     void setUp() {
         final var authentication = Authentication.builder()
@@ -35,20 +26,5 @@ class SecurityUserServiceTest extends BaseSupports {
                 .build();
 
         authenticationRepository.save(authentication);
-    }
-
-    @Test
-    void loadUserByUsername() {
-        // when
-        final var user = securityUserService.loadUserByUsername(EMAIL);
-
-        // then
-        assertThat(user).isNotNull();
-    }
-
-    @Test
-    void loadUserByUsernameNotFound() {
-        assertThatExceptionOfType(ServiceRuntimeException.class)
-                .isThrownBy(() -> securityUserService.loadUserByUsername(RandomUtils.getSecureString(20)));
     }
 }
