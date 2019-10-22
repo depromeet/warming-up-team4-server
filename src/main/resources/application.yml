@@ -16,6 +16,6 @@ custom:
     password-encode-strength: 6
     jwt:
       secret-key: SeCrEtKeY
-      refresh-term: 30s
+      refresh-term:
       expired-term: 1m
       jwt-id-length: 128

@@ -5,9 +5,11 @@ import com.fasterxml.uuid.Generators;
 import com.fasterxml.uuid.impl.TimeBasedGenerator;
 import lombok.experimental.UtilityClass;
 
+import javax.annotation.concurrent.ThreadSafe;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+@ThreadSafe
 @UtilityClass
 public class RandomUtils {
 
