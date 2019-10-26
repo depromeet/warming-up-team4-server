@@ -102,7 +102,7 @@ public final class AlarmTypeOuterClass {
 
     private final int value;
 
-    AlarmType(int value) {
+    private AlarmType(int value) {
       this.value = value;
     }
 

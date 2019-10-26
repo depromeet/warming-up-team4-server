@@ -322,7 +322,8 @@ public final class AccountOuterClass {
           .equals(other.getPassword())) return false;
       if (!getNickname()
           .equals(other.getNickname())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1120,7 +1121,8 @@ public final class AccountOuterClass {
           .equals(other.getEmail())) return false;
       if (!getPassword()
           .equals(other.getPassword())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1833,7 +1835,8 @@ public final class AccountOuterClass {
       }
       if (!getAccessToken()
           .equals(other.getAccessToken())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2535,7 +2538,8 @@ public final class AccountOuterClass {
 
       if (!getVerificationCode()
           .equals(other.getVerificationCode())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override

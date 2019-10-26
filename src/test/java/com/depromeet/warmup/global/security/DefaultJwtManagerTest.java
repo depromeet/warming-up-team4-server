@@ -2,45 +2,22 @@ package com.depromeet.warmup.global.security;
 
 import com.depromeet.warmup.domain.authentication.Authentication;
 import com.depromeet.warmup.global.security.jwt.JwtManager;
-import com.depromeet.warmup.properties.ApplicationProperties;
-import com.depromeet.warmup.properties.JwtProperties;
-import com.depromeet.warmup.properties.SecurityProperties;
+import com.depromeet.warmup.support.RedisBaseSupports;
 import com.depromeet.warmup.utils.random.RandomUtils;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.time.Duration;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class JwtManagerTest {
+class DefaultJwtManagerTest extends RedisBaseSupports {
 
     private static final String EMAIL = "jaeyeonling@gmail.com";
 
+    @Autowired
     private org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
-    private JwtManager jwtManager;
 
-    @BeforeEach
-    void setUp() {
-        final var applicationProperties = new ApplicationProperties();
-        applicationProperties.setName("name");
-        applicationProperties.setVersion("0.0.1");
-
-        final var jwtProperties = new JwtProperties();
-        jwtProperties.setExpiredTerm(Duration.ofSeconds(20));
-        jwtProperties.setHeaderName("authentication");
-        jwtProperties.setJwtIdLength(128);
-        jwtProperties.setRefreshTerm(Duration.ofSeconds(10));
-        jwtProperties.setSecretKey("secret");
-
-        final var securityProperties = new SecurityProperties();
-        securityProperties.setPasswordEncodeStrength(6);
-        securityProperties.setJwt(jwtProperties);
-
-        passwordEncoder = new PasswordEncoder(securityProperties);
-
-        jwtManager = new JwtManager(applicationProperties, securityProperties);
-    }
+    @Autowired
+    private JwtManager<Authentication> jwtManager;
 
     @Test
     void isValid() {
@@ -90,8 +67,6 @@ class JwtManagerTest {
                 .password(passwordEncoder.encode("password"))
                 .build();
 
-        final var securityUser = SecurityUser.of(authentication);
-
-        return jwtManager.generate(securityUser);
+        return jwtManager.generate(authentication);
     }
 }

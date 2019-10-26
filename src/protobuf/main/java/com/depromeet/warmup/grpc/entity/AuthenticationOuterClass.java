@@ -263,7 +263,8 @@ public final class AuthenticationOuterClass {
         if (!getUser()
             .equals(other.getUser())) return false;
       }
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
