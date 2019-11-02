@@ -8,10 +8,12 @@ import com.depromeet.warmup.global.exception.ServiceStatus;
 import com.depromeet.warmup.global.security.jwt.JwtGenerator;
 import com.depromeet.warmup.grpc.service.AccountOuterClass;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class AccountService {
@@ -39,8 +41,7 @@ public class AccountService {
                 .map(findAuthentication -> AccountOuterClass.SignInResponse.newBuilder()
                         .setAuthentication(findAuthentication.toProtoBuf())
                         .setAccessToken(jwtGenerator.generate(findAuthentication))
-                        .build())
-                .flatMap(Mono::just);
+                        .build());
     }
 
     private Authentication encodePassword(final Authentication authentication) {
