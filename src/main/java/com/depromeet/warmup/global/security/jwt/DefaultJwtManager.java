@@ -24,9 +24,6 @@ public class DefaultJwtManager implements JwtManager<Authentication> {
 
     private static final String EXPIRED_ERROR_MESSAGE = "expired";
 
-    private static final String EMAIL_CLAIM_KEY = "email";
-    private static final String NICKNAME_CLAIM_KEY = "nickname";
-
     private final String issuer;
     private final Duration expiredTerm;
     private final Duration refreshTerm;
@@ -55,8 +52,8 @@ public class DefaultJwtManager implements JwtManager<Authentication> {
     }
 
     public String renew(final DecodedJWT decodedJWT) {
-        return generate(decodedJWT.getClaim(EMAIL_CLAIM_KEY).asString(),
-                decodedJWT.getClaim(NICKNAME_CLAIM_KEY).asString(),
+        return generate(decodedJWT.getClaim(AccessToken.EMAIL_CLAIM_KEY).asString(),
+                decodedJWT.getClaim(AccessToken.NICKNAME_CLAIM_KEY).asString(),
                 decodedJWT.getKeyId());
     }
 
@@ -97,14 +94,15 @@ public class DefaultJwtManager implements JwtManager<Authentication> {
                 .withExpiresAt(getExpiredAt())
 
                 // Note: Put claim set here
-                .withClaim(EMAIL_CLAIM_KEY, email)
-                .withClaim(NICKNAME_CLAIM_KEY, nickname)
+                .withClaim(AccessToken.EMAIL_CLAIM_KEY, email)
+                .withClaim(AccessToken.NICKNAME_CLAIM_KEY, nickname)
 
                 .withJWTId(jwtId)
                 .withKeyId(userObjectId)
                 .sign(algorithm);
 
-        save(jwtId, token);
+//        TODO:
+//        save(jwtId, token);
 
         return token;
     }
@@ -119,7 +117,8 @@ public class DefaultJwtManager implements JwtManager<Authentication> {
         accessTokenService.save(AccessToken.builder()
                 .id(jwtId)
                 .token(token)
-                .timeToLiveMillis(expiredTerm.plus(refreshTerm).toMillis())
+                .timeToLiveMillis(expiredTerm.plus(refreshTerm)
+                        .toMillis())
                 .build())
                 .block();
     }
