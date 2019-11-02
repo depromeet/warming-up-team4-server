@@ -48,8 +48,4 @@ public class User extends DateAuditEntity implements ProtobufConverter<UserOuter
                 .setLastModifiedDate(getLastModifiedDateMillis())
                 .build();
     }
-
-    public String getUniversityName() {
-        return university.getName();
-    }
 }
