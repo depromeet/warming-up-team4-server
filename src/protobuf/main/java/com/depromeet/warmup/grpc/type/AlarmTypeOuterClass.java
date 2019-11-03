@@ -20,16 +20,16 @@ public final class AlarmTypeOuterClass {
   public enum AlarmType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>TODO = 0;</code>
+     * <code>BARTER_REQUEST = 0;</code>
      */
-    TODO(0),
+    BARTER_REQUEST(0),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>TODO = 0;</code>
+     * <code>BARTER_REQUEST = 0;</code>
      */
-    public static final int TODO_VALUE = 0;
+    public static final int BARTER_REQUEST_VALUE = 0;
 
 
     public final int getNumber() {
@@ -56,7 +56,7 @@ public final class AlarmTypeOuterClass {
      */
     public static AlarmType forNumber(int value) {
       switch (value) {
-        case 0: return TODO;
+        case 0: return BARTER_REQUEST;
         default: return null;
       }
     }
@@ -118,9 +118,9 @@ public final class AlarmTypeOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025type/alarm_type.proto\022\013warmup.type*\025\n\t" +
-      "AlarmType\022\010\n\004TODO\020\000B \n\036com.depromeet.war" +
-      "mup.grpc.typeb\006proto3"
+      "\n\025type/alarm_type.proto\022\013warmup.type*\037\n\t" +
+      "AlarmType\022\022\n\016BARTER_REQUEST\020\000B \n\036com.dep" +
+      "romeet.warmup.grpc.typeb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
