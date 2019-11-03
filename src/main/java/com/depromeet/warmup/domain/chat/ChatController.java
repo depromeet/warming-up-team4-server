@@ -1,5 +1,9 @@
 package com.depromeet.warmup.domain.chat;
 
+import com.depromeet.warmup.global.exception.ServiceRuntimeException;
+import com.depromeet.warmup.global.exception.ServiceStatus;
+import com.depromeet.warmup.global.interceptor.AuthInterceptor;
+import com.depromeet.warmup.global.security.AccessTokenContext;
 import com.depromeet.warmup.grpc.service.ChatGrpc;
 import com.depromeet.warmup.grpc.service.ChatOuterClass;
 import io.grpc.stub.StreamObserver;
@@ -10,24 +14,21 @@ import reactor.core.publisher.UnicastProcessor;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RequiredArgsConstructor
-@GrpcService
+@GrpcService(interceptors = {AuthInterceptor.class})
 public class ChatController extends ChatGrpc.ChatImplBase {
 
     // TODO refactor (시간 부족으로 인한 일단 구현)
 
     private final Map<Long, UnicastProcessor<String>> rooms = new ConcurrentHashMap<>();
 
-    private final AtomicLong autoIncrement = new AtomicLong();
-
     @Override
     public StreamObserver<ChatOuterClass.ChatRequest> join(
             final StreamObserver<ChatOuterClass.ChatResponse> responseObserver) {
-//        final var accessToken = AccessTokenContext.getAccessToken()
-//                .orElseThrow(() -> ServiceRuntimeException.status(ServiceStatus.BAD_REQUEST));
-        final var from = autoIncrement.incrementAndGet(); // accessToken.getUserId();
+        final var accessToken = AccessTokenContext.getAccessToken()
+                .orElseThrow(() -> ServiceRuntimeException.status(ServiceStatus.BAD_REQUEST));
+        final var from = accessToken.getUserId();
         final var room = getRoom(from);
 
         room.subscribe(message -> responseObserver.onNext(ChatOuterClass.ChatResponse.newBuilder()
