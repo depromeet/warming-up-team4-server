@@ -29,8 +29,7 @@ public class AccountService {
                 .switchIfEmpty(Mono.error(ServiceRuntimeException.status(ServiceStatus.UNIVERSITY_NOT_FOUND)))
                 .map(authentication::setUniversity)
                 .map(this::encodePassword)
-                .flatMap(authenticationService::save)
-                .flatMap(Mono::just);
+                .flatMap(authenticationService::save);
     }
 
     public Mono<AccountOuterClass.SignInResponse> signIn(final Authentication authentication) {
