@@ -163,7 +163,8 @@ public final class NotificationOuterClass {
 
       if (getAlarmId()
           != other.getAlarmId()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override

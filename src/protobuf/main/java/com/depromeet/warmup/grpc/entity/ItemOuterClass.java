@@ -78,28 +78,63 @@ public final class ItemOuterClass {
         int index);
 
     /**
-     * <code>.warmup.entity.User owner = 5;</code>
+     * <code>string place = 5;</code>
+     * @return The place.
+     */
+    java.lang.String getPlace();
+    /**
+     * <code>string place = 5;</code>
+     * @return The bytes for place.
+     */
+    com.google.protobuf.ByteString
+        getPlaceBytes();
+
+    /**
+     * <code>.warmup.type.Categories category = 6;</code>
+     * @return The enum numeric value on the wire for category.
+     */
+    int getCategoryValue();
+    /**
+     * <code>.warmup.type.Categories category = 6;</code>
+     * @return The category.
+     */
+    com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory();
+
+    /**
+     * <code>string tag = 7;</code>
+     * @return The tag.
+     */
+    java.lang.String getTag();
+    /**
+     * <code>string tag = 7;</code>
+     * @return The bytes for tag.
+     */
+    com.google.protobuf.ByteString
+        getTagBytes();
+
+    /**
+     * <code>.warmup.entity.User owner = 8;</code>
      * @return Whether the owner field is set.
      */
     boolean hasOwner();
     /**
-     * <code>.warmup.entity.User owner = 5;</code>
+     * <code>.warmup.entity.User owner = 8;</code>
      * @return The owner.
      */
     com.depromeet.warmup.grpc.entity.UserOuterClass.User getOwner();
     /**
-     * <code>.warmup.entity.User owner = 5;</code>
+     * <code>.warmup.entity.User owner = 8;</code>
      */
     com.depromeet.warmup.grpc.entity.UserOuterClass.UserOrBuilder getOwnerOrBuilder();
 
     /**
-     * <code>int64 created_date = 6;</code>
+     * <code>int64 created_date = 9;</code>
      * @return The createdDate.
      */
     long getCreatedDate();
 
     /**
-     * <code>int64 last_modified_date = 7;</code>
+     * <code>int64 last_modified_date = 10;</code>
      * @return The lastModifiedDate.
      */
     long getLastModifiedDate();
@@ -125,6 +160,9 @@ public final class ItemOuterClass {
       description_ = "";
       barterStatus_ = 0;
       images_ = java.util.Collections.emptyList();
+      place_ = "";
+      category_ = 0;
+      tag_ = "";
     }
 
     @java.lang.Override
@@ -186,6 +224,24 @@ public final class ItemOuterClass {
               break;
             }
             case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              place_ = s;
+              break;
+            }
+            case 48: {
+              int rawValue = input.readEnum();
+
+              category_ = rawValue;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tag_ = s;
+              break;
+            }
+            case 66: {
               com.depromeet.warmup.grpc.entity.UserOuterClass.User.Builder subBuilder = null;
               if (owner_ != null) {
                 subBuilder = owner_.toBuilder();
@@ -198,12 +254,12 @@ public final class ItemOuterClass {
 
               break;
             }
-            case 48: {
+            case 72: {
 
               createdDate_ = input.readInt64();
               break;
             }
-            case 56: {
+            case 80: {
 
               lastModifiedDate_ = input.readInt64();
               break;
@@ -369,43 +425,134 @@ public final class ItemOuterClass {
       return images_.get(index);
     }
 
-    public static final int OWNER_FIELD_NUMBER = 5;
+    public static final int PLACE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object place_;
+    /**
+     * <code>string place = 5;</code>
+     * @return The place.
+     */
+    public java.lang.String getPlace() {
+      java.lang.Object ref = place_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        place_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string place = 5;</code>
+     * @return The bytes for place.
+     */
+    public com.google.protobuf.ByteString
+        getPlaceBytes() {
+      java.lang.Object ref = place_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        place_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CATEGORY_FIELD_NUMBER = 6;
+    private int category_;
+    /**
+     * <code>.warmup.type.Categories category = 6;</code>
+     * @return The enum numeric value on the wire for category.
+     */
+    public int getCategoryValue() {
+      return category_;
+    }
+    /**
+     * <code>.warmup.type.Categories category = 6;</code>
+     * @return The category.
+     */
+    public com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory() {
+      @SuppressWarnings("deprecation")
+      com.depromeet.warmup.grpc.type.CategoryType.Categories result = com.depromeet.warmup.grpc.type.CategoryType.Categories.valueOf(category_);
+      return result == null ? com.depromeet.warmup.grpc.type.CategoryType.Categories.UNRECOGNIZED : result;
+    }
+
+    public static final int TAG_FIELD_NUMBER = 7;
+    private volatile java.lang.Object tag_;
+    /**
+     * <code>string tag = 7;</code>
+     * @return The tag.
+     */
+    public java.lang.String getTag() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tag_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string tag = 7;</code>
+     * @return The bytes for tag.
+     */
+    public com.google.protobuf.ByteString
+        getTagBytes() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tag_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OWNER_FIELD_NUMBER = 8;
     private com.depromeet.warmup.grpc.entity.UserOuterClass.User owner_;
     /**
-     * <code>.warmup.entity.User owner = 5;</code>
+     * <code>.warmup.entity.User owner = 8;</code>
      * @return Whether the owner field is set.
      */
     public boolean hasOwner() {
       return owner_ != null;
     }
     /**
-     * <code>.warmup.entity.User owner = 5;</code>
+     * <code>.warmup.entity.User owner = 8;</code>
      * @return The owner.
      */
     public com.depromeet.warmup.grpc.entity.UserOuterClass.User getOwner() {
       return owner_ == null ? com.depromeet.warmup.grpc.entity.UserOuterClass.User.getDefaultInstance() : owner_;
     }
     /**
-     * <code>.warmup.entity.User owner = 5;</code>
+     * <code>.warmup.entity.User owner = 8;</code>
      */
     public com.depromeet.warmup.grpc.entity.UserOuterClass.UserOrBuilder getOwnerOrBuilder() {
       return getOwner();
     }
 
-    public static final int CREATED_DATE_FIELD_NUMBER = 6;
+    public static final int CREATED_DATE_FIELD_NUMBER = 9;
     private long createdDate_;
     /**
-     * <code>int64 created_date = 6;</code>
+     * <code>int64 created_date = 9;</code>
      * @return The createdDate.
      */
     public long getCreatedDate() {
       return createdDate_;
     }
 
-    public static final int LAST_MODIFIED_DATE_FIELD_NUMBER = 7;
+    public static final int LAST_MODIFIED_DATE_FIELD_NUMBER = 10;
     private long lastModifiedDate_;
     /**
-     * <code>int64 last_modified_date = 7;</code>
+     * <code>int64 last_modified_date = 10;</code>
      * @return The lastModifiedDate.
      */
     public long getLastModifiedDate() {
@@ -438,14 +585,23 @@ public final class ItemOuterClass {
       for (int i = 0; i < images_.size(); i++) {
         output.writeMessage(4, images_.get(i));
       }
+      if (!getPlaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, place_);
+      }
+      if (category_ != com.depromeet.warmup.grpc.type.CategoryType.Categories.FOOD.getNumber()) {
+        output.writeEnum(6, category_);
+      }
+      if (!getTagBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, tag_);
+      }
       if (owner_ != null) {
-        output.writeMessage(5, getOwner());
+        output.writeMessage(8, getOwner());
       }
       if (createdDate_ != 0L) {
-        output.writeInt64(6, createdDate_);
+        output.writeInt64(9, createdDate_);
       }
       if (lastModifiedDate_ != 0L) {
-        output.writeInt64(7, lastModifiedDate_);
+        output.writeInt64(10, lastModifiedDate_);
       }
       unknownFields.writeTo(output);
     }
@@ -470,17 +626,27 @@ public final class ItemOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, images_.get(i));
       }
+      if (!getPlaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, place_);
+      }
+      if (category_ != com.depromeet.warmup.grpc.type.CategoryType.Categories.FOOD.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, category_);
+      }
+      if (!getTagBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, tag_);
+      }
       if (owner_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getOwner());
+          .computeMessageSize(8, getOwner());
       }
       if (createdDate_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, createdDate_);
+          .computeInt64Size(9, createdDate_);
       }
       if (lastModifiedDate_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, lastModifiedDate_);
+          .computeInt64Size(10, lastModifiedDate_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -504,6 +670,11 @@ public final class ItemOuterClass {
       if (barterStatus_ != other.barterStatus_) return false;
       if (!getImagesList()
           .equals(other.getImagesList())) return false;
+      if (!getPlace()
+          .equals(other.getPlace())) return false;
+      if (category_ != other.category_) return false;
+      if (!getTag()
+          .equals(other.getTag())) return false;
       if (hasOwner() != other.hasOwner()) return false;
       if (hasOwner()) {
         if (!getOwner()
@@ -513,7 +684,8 @@ public final class ItemOuterClass {
           != other.getCreatedDate()) return false;
       if (getLastModifiedDate()
           != other.getLastModifiedDate()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -533,6 +705,12 @@ public final class ItemOuterClass {
         hash = (37 * hash) + IMAGES_FIELD_NUMBER;
         hash = (53 * hash) + getImagesList().hashCode();
       }
+      hash = (37 * hash) + PLACE_FIELD_NUMBER;
+      hash = (53 * hash) + getPlace().hashCode();
+      hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
+      hash = (53 * hash) + category_;
+      hash = (37 * hash) + TAG_FIELD_NUMBER;
+      hash = (53 * hash) + getTag().hashCode();
       if (hasOwner()) {
         hash = (37 * hash) + OWNER_FIELD_NUMBER;
         hash = (53 * hash) + getOwner().hashCode();
@@ -693,6 +871,12 @@ public final class ItemOuterClass {
         } else {
           imagesBuilder_.clear();
         }
+        place_ = "";
+
+        category_ = 0;
+
+        tag_ = "";
+
         if (ownerBuilder_ == null) {
           owner_ = null;
         } else {
@@ -742,6 +926,9 @@ public final class ItemOuterClass {
         } else {
           result.images_ = imagesBuilder_.build();
         }
+        result.place_ = place_;
+        result.category_ = category_;
+        result.tag_ = tag_;
         if (ownerBuilder_ == null) {
           result.owner_ = owner_;
         } else {
@@ -833,6 +1020,17 @@ public final class ItemOuterClass {
               imagesBuilder_.addAllMessages(other.images_);
             }
           }
+        }
+        if (!other.getPlace().isEmpty()) {
+          place_ = other.place_;
+          onChanged();
+        }
+        if (other.category_ != 0) {
+          setCategoryValue(other.getCategoryValue());
+        }
+        if (!other.getTag().isEmpty()) {
+          tag_ = other.tag_;
+          onChanged();
         }
         if (other.hasOwner()) {
           mergeOwner(other.getOwner());
@@ -1317,18 +1515,222 @@ public final class ItemOuterClass {
         return imagesBuilder_;
       }
 
+      private java.lang.Object place_ = "";
+      /**
+       * <code>string place = 5;</code>
+       * @return The place.
+       */
+      public java.lang.String getPlace() {
+        java.lang.Object ref = place_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          place_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string place = 5;</code>
+       * @return The bytes for place.
+       */
+      public com.google.protobuf.ByteString
+          getPlaceBytes() {
+        java.lang.Object ref = place_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          place_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string place = 5;</code>
+       * @param value The place to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlace(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        place_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string place = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPlace() {
+        
+        place_ = getDefaultInstance().getPlace();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string place = 5;</code>
+       * @param value The bytes for place to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlaceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        place_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int category_ = 0;
+      /**
+       * <code>.warmup.type.Categories category = 6;</code>
+       * @return The enum numeric value on the wire for category.
+       */
+      public int getCategoryValue() {
+        return category_;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 6;</code>
+       * @param value The enum numeric value on the wire for category to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategoryValue(int value) {
+        category_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 6;</code>
+       * @return The category.
+       */
+      public com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory() {
+        @SuppressWarnings("deprecation")
+        com.depromeet.warmup.grpc.type.CategoryType.Categories result = com.depromeet.warmup.grpc.type.CategoryType.Categories.valueOf(category_);
+        return result == null ? com.depromeet.warmup.grpc.type.CategoryType.Categories.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 6;</code>
+       * @param value The category to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategory(com.depromeet.warmup.grpc.type.CategoryType.Categories value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        category_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCategory() {
+        
+        category_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object tag_ = "";
+      /**
+       * <code>string tag = 7;</code>
+       * @return The tag.
+       */
+      public java.lang.String getTag() {
+        java.lang.Object ref = tag_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tag_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string tag = 7;</code>
+       * @return The bytes for tag.
+       */
+      public com.google.protobuf.ByteString
+          getTagBytes() {
+        java.lang.Object ref = tag_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tag_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string tag = 7;</code>
+       * @param value The tag to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTag(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tag_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tag = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTag() {
+        
+        tag_ = getDefaultInstance().getTag();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tag = 7;</code>
+       * @param value The bytes for tag to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tag_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.depromeet.warmup.grpc.entity.UserOuterClass.User owner_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.depromeet.warmup.grpc.entity.UserOuterClass.User, com.depromeet.warmup.grpc.entity.UserOuterClass.User.Builder, com.depromeet.warmup.grpc.entity.UserOuterClass.UserOrBuilder> ownerBuilder_;
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        * @return Whether the owner field is set.
        */
       public boolean hasOwner() {
         return ownerBuilder_ != null || owner_ != null;
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        * @return The owner.
        */
       public com.depromeet.warmup.grpc.entity.UserOuterClass.User getOwner() {
@@ -1339,7 +1741,7 @@ public final class ItemOuterClass {
         }
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        */
       public Builder setOwner(com.depromeet.warmup.grpc.entity.UserOuterClass.User value) {
         if (ownerBuilder_ == null) {
@@ -1355,7 +1757,7 @@ public final class ItemOuterClass {
         return this;
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        */
       public Builder setOwner(
           com.depromeet.warmup.grpc.entity.UserOuterClass.User.Builder builderForValue) {
@@ -1369,7 +1771,7 @@ public final class ItemOuterClass {
         return this;
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        */
       public Builder mergeOwner(com.depromeet.warmup.grpc.entity.UserOuterClass.User value) {
         if (ownerBuilder_ == null) {
@@ -1387,7 +1789,7 @@ public final class ItemOuterClass {
         return this;
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        */
       public Builder clearOwner() {
         if (ownerBuilder_ == null) {
@@ -1401,7 +1803,7 @@ public final class ItemOuterClass {
         return this;
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        */
       public com.depromeet.warmup.grpc.entity.UserOuterClass.User.Builder getOwnerBuilder() {
         
@@ -1409,7 +1811,7 @@ public final class ItemOuterClass {
         return getOwnerFieldBuilder().getBuilder();
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        */
       public com.depromeet.warmup.grpc.entity.UserOuterClass.UserOrBuilder getOwnerOrBuilder() {
         if (ownerBuilder_ != null) {
@@ -1420,7 +1822,7 @@ public final class ItemOuterClass {
         }
       }
       /**
-       * <code>.warmup.entity.User owner = 5;</code>
+       * <code>.warmup.entity.User owner = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.depromeet.warmup.grpc.entity.UserOuterClass.User, com.depromeet.warmup.grpc.entity.UserOuterClass.User.Builder, com.depromeet.warmup.grpc.entity.UserOuterClass.UserOrBuilder> 
@@ -1438,14 +1840,14 @@ public final class ItemOuterClass {
 
       private long createdDate_ ;
       /**
-       * <code>int64 created_date = 6;</code>
+       * <code>int64 created_date = 9;</code>
        * @return The createdDate.
        */
       public long getCreatedDate() {
         return createdDate_;
       }
       /**
-       * <code>int64 created_date = 6;</code>
+       * <code>int64 created_date = 9;</code>
        * @param value The createdDate to set.
        * @return This builder for chaining.
        */
@@ -1456,7 +1858,7 @@ public final class ItemOuterClass {
         return this;
       }
       /**
-       * <code>int64 created_date = 6;</code>
+       * <code>int64 created_date = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearCreatedDate() {
@@ -1468,14 +1870,14 @@ public final class ItemOuterClass {
 
       private long lastModifiedDate_ ;
       /**
-       * <code>int64 last_modified_date = 7;</code>
+       * <code>int64 last_modified_date = 10;</code>
        * @return The lastModifiedDate.
        */
       public long getLastModifiedDate() {
         return lastModifiedDate_;
       }
       /**
-       * <code>int64 last_modified_date = 7;</code>
+       * <code>int64 last_modified_date = 10;</code>
        * @param value The lastModifiedDate to set.
        * @return This builder for chaining.
        */
@@ -1486,7 +1888,7 @@ public final class ItemOuterClass {
         return this;
       }
       /**
-       * <code>int64 last_modified_date = 7;</code>
+       * <code>int64 last_modified_date = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearLastModifiedDate() {
@@ -1564,14 +1966,16 @@ public final class ItemOuterClass {
     java.lang.String[] descriptorData = {
       "\n\021entity/item.proto\022\rwarmup.entity\032\022enti" +
       "ty/image.proto\032\021entity/user.proto\032\030type/" +
-      "barter_status.proto\"\327\001\n\004Item\022\014\n\004name\030\001 \001" +
-      "(\t\022\023\n\013description\030\002 \001(\t\0220\n\rbarter_status" +
-      "\030\003 \001(\0162\031.warmup.type.BarterStatus\022$\n\006ima" +
-      "ges\030\004 \003(\0132\024.warmup.entity.Image\022\"\n\005owner" +
-      "\030\005 \001(\0132\023.warmup.entity.User\022\024\n\014created_d" +
-      "ate\030\006 \001(\003\022\032\n\022last_modified_date\030\007 \001(\003B\"\n" +
-      " com.depromeet.warmup.grpc.entityb\006proto" +
-      "3"
+      "barter_status.proto\032\030type/category_type." +
+      "proto\"\236\002\n\004Item\022\014\n\004name\030\001 \001(\t\022\023\n\013descript" +
+      "ion\030\002 \001(\t\0220\n\rbarter_status\030\003 \001(\0162\031.warmu" +
+      "p.type.BarterStatus\022$\n\006images\030\004 \003(\0132\024.wa" +
+      "rmup.entity.Image\022\r\n\005place\030\005 \001(\t\022)\n\010cate" +
+      "gory\030\006 \001(\0162\027.warmup.type.Categories\022\013\n\003t" +
+      "ag\030\007 \001(\t\022\"\n\005owner\030\010 \001(\0132\023.warmup.entity." +
+      "User\022\024\n\014created_date\030\t \001(\003\022\032\n\022last_modif" +
+      "ied_date\030\n \001(\003B\"\n com.depromeet.warmup.g" +
+      "rpc.entityb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1579,16 +1983,18 @@ public final class ItemOuterClass {
           com.depromeet.warmup.grpc.entity.ImageOuterClass.getDescriptor(),
           com.depromeet.warmup.grpc.entity.UserOuterClass.getDescriptor(),
           com.depromeet.warmup.grpc.type.BarterStatusOuterClass.getDescriptor(),
+          com.depromeet.warmup.grpc.type.CategoryType.getDescriptor(),
         });
     internal_static_warmup_entity_Item_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_warmup_entity_Item_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_warmup_entity_Item_descriptor,
-        new java.lang.String[] { "Name", "Description", "BarterStatus", "Images", "Owner", "CreatedDate", "LastModifiedDate", });
+        new java.lang.String[] { "Name", "Description", "BarterStatus", "Images", "Place", "Category", "Tag", "Owner", "CreatedDate", "LastModifiedDate", });
     com.depromeet.warmup.grpc.entity.ImageOuterClass.getDescriptor();
     com.depromeet.warmup.grpc.entity.UserOuterClass.getDescriptor();
     com.depromeet.warmup.grpc.type.BarterStatusOuterClass.getDescriptor();
+    com.depromeet.warmup.grpc.type.CategoryType.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

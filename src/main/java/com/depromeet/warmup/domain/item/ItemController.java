@@ -19,6 +19,7 @@ class ItemController extends ItemGrpc.ItemImplBase {
         itemService.save(Item.builder()
                 .name(request.getName())
                 .description(request.getDescription())
+
                 .build())
                 .map(ProtobufConverter::toProtoBuf)
                 .subscribe(responseObserver::onNext,

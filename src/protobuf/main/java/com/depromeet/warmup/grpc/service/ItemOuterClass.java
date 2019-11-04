@@ -66,6 +66,41 @@ public final class ItemOuterClass {
      */
     com.google.protobuf.ByteString
         getImageUrlsBytes(int index);
+
+    /**
+     * <code>string place = 4;</code>
+     * @return The place.
+     */
+    java.lang.String getPlace();
+    /**
+     * <code>string place = 4;</code>
+     * @return The bytes for place.
+     */
+    com.google.protobuf.ByteString
+        getPlaceBytes();
+
+    /**
+     * <code>.warmup.type.Categories category = 5;</code>
+     * @return The enum numeric value on the wire for category.
+     */
+    int getCategoryValue();
+    /**
+     * <code>.warmup.type.Categories category = 5;</code>
+     * @return The category.
+     */
+    com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory();
+
+    /**
+     * <code>string tag = 6;</code>
+     * @return The tag.
+     */
+    java.lang.String getTag();
+    /**
+     * <code>string tag = 6;</code>
+     * @return The bytes for tag.
+     */
+    com.google.protobuf.ByteString
+        getTagBytes();
   }
   /**
    * Protobuf type {@code warmup.service.SaveRequest}
@@ -83,6 +118,9 @@ public final class ItemOuterClass {
       name_ = "";
       description_ = "";
       imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      place_ = "";
+      category_ = 0;
+      tag_ = "";
     }
 
     @java.lang.Override
@@ -135,6 +173,24 @@ public final class ItemOuterClass {
                 mutable_bitField0_ |= 0x00000001;
               }
               imageUrls_.add(s);
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              place_ = s;
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+
+              category_ = rawValue;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tag_ = s;
               break;
             }
             default: {
@@ -279,6 +335,97 @@ public final class ItemOuterClass {
       return imageUrls_.getByteString(index);
     }
 
+    public static final int PLACE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object place_;
+    /**
+     * <code>string place = 4;</code>
+     * @return The place.
+     */
+    public java.lang.String getPlace() {
+      java.lang.Object ref = place_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        place_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string place = 4;</code>
+     * @return The bytes for place.
+     */
+    public com.google.protobuf.ByteString
+        getPlaceBytes() {
+      java.lang.Object ref = place_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        place_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CATEGORY_FIELD_NUMBER = 5;
+    private int category_;
+    /**
+     * <code>.warmup.type.Categories category = 5;</code>
+     * @return The enum numeric value on the wire for category.
+     */
+    public int getCategoryValue() {
+      return category_;
+    }
+    /**
+     * <code>.warmup.type.Categories category = 5;</code>
+     * @return The category.
+     */
+    public com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory() {
+      @SuppressWarnings("deprecation")
+      com.depromeet.warmup.grpc.type.CategoryType.Categories result = com.depromeet.warmup.grpc.type.CategoryType.Categories.valueOf(category_);
+      return result == null ? com.depromeet.warmup.grpc.type.CategoryType.Categories.UNRECOGNIZED : result;
+    }
+
+    public static final int TAG_FIELD_NUMBER = 6;
+    private volatile java.lang.Object tag_;
+    /**
+     * <code>string tag = 6;</code>
+     * @return The tag.
+     */
+    public java.lang.String getTag() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tag_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string tag = 6;</code>
+     * @return The bytes for tag.
+     */
+    public com.google.protobuf.ByteString
+        getTagBytes() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tag_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -301,6 +448,15 @@ public final class ItemOuterClass {
       }
       for (int i = 0; i < imageUrls_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageUrls_.getRaw(i));
+      }
+      if (!getPlaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, place_);
+      }
+      if (category_ != com.depromeet.warmup.grpc.type.CategoryType.Categories.FOOD.getNumber()) {
+        output.writeEnum(5, category_);
+      }
+      if (!getTagBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tag_);
       }
       unknownFields.writeTo(output);
     }
@@ -325,6 +481,16 @@ public final class ItemOuterClass {
         size += dataSize;
         size += 1 * getImageUrlsList().size();
       }
+      if (!getPlaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, place_);
+      }
+      if (category_ != com.depromeet.warmup.grpc.type.CategoryType.Categories.FOOD.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, category_);
+      }
+      if (!getTagBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, tag_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -346,7 +512,13 @@ public final class ItemOuterClass {
           .equals(other.getDescription())) return false;
       if (!getImageUrlsList()
           .equals(other.getImageUrlsList())) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!getPlace()
+          .equals(other.getPlace())) return false;
+      if (category_ != other.category_) return false;
+      if (!getTag()
+          .equals(other.getTag())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -364,6 +536,12 @@ public final class ItemOuterClass {
         hash = (37 * hash) + IMAGE_URLS_FIELD_NUMBER;
         hash = (53 * hash) + getImageUrlsList().hashCode();
       }
+      hash = (37 * hash) + PLACE_FIELD_NUMBER;
+      hash = (53 * hash) + getPlace().hashCode();
+      hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
+      hash = (53 * hash) + category_;
+      hash = (37 * hash) + TAG_FIELD_NUMBER;
+      hash = (53 * hash) + getTag().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -503,6 +681,12 @@ public final class ItemOuterClass {
 
         imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
+        place_ = "";
+
+        category_ = 0;
+
+        tag_ = "";
+
         return this;
       }
 
@@ -537,6 +721,9 @@ public final class ItemOuterClass {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.imageUrls_ = imageUrls_;
+        result.place_ = place_;
+        result.category_ = category_;
+        result.tag_ = tag_;
         onBuilt();
         return result;
       }
@@ -601,6 +788,17 @@ public final class ItemOuterClass {
             ensureImageUrlsIsMutable();
             imageUrls_.addAll(other.imageUrls_);
           }
+          onChanged();
+        }
+        if (!other.getPlace().isEmpty()) {
+          place_ = other.place_;
+          onChanged();
+        }
+        if (other.category_ != 0) {
+          setCategoryValue(other.getCategoryValue());
+        }
+        if (!other.getTag().isEmpty()) {
+          tag_ = other.tag_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -894,6 +1092,210 @@ public final class ItemOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object place_ = "";
+      /**
+       * <code>string place = 4;</code>
+       * @return The place.
+       */
+      public java.lang.String getPlace() {
+        java.lang.Object ref = place_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          place_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string place = 4;</code>
+       * @return The bytes for place.
+       */
+      public com.google.protobuf.ByteString
+          getPlaceBytes() {
+        java.lang.Object ref = place_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          place_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string place = 4;</code>
+       * @param value The place to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlace(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        place_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string place = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPlace() {
+        
+        place_ = getDefaultInstance().getPlace();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string place = 4;</code>
+       * @param value The bytes for place to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlaceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        place_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int category_ = 0;
+      /**
+       * <code>.warmup.type.Categories category = 5;</code>
+       * @return The enum numeric value on the wire for category.
+       */
+      public int getCategoryValue() {
+        return category_;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 5;</code>
+       * @param value The enum numeric value on the wire for category to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategoryValue(int value) {
+        category_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 5;</code>
+       * @return The category.
+       */
+      public com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory() {
+        @SuppressWarnings("deprecation")
+        com.depromeet.warmup.grpc.type.CategoryType.Categories result = com.depromeet.warmup.grpc.type.CategoryType.Categories.valueOf(category_);
+        return result == null ? com.depromeet.warmup.grpc.type.CategoryType.Categories.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 5;</code>
+       * @param value The category to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategory(com.depromeet.warmup.grpc.type.CategoryType.Categories value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        category_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCategory() {
+        
+        category_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object tag_ = "";
+      /**
+       * <code>string tag = 6;</code>
+       * @return The tag.
+       */
+      public java.lang.String getTag() {
+        java.lang.Object ref = tag_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tag_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string tag = 6;</code>
+       * @return The bytes for tag.
+       */
+      public com.google.protobuf.ByteString
+          getTagBytes() {
+        java.lang.Object ref = tag_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tag_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string tag = 6;</code>
+       * @param value The tag to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTag(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tag_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tag = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTag() {
+        
+        tag_ = getDefaultInstance().getTag();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tag = 6;</code>
+       * @param value The bytes for tag to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tag_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1126,7 +1528,8 @@ public final class ItemOuterClass {
           != other.getSize()) return false;
       if (getLastId()
           != other.getLastId()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1649,7 +2052,8 @@ public final class ItemOuterClass {
 
       if (getId()
           != other.getId()) return false;
-        return unknownFields.equals(other.unknownFields);
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2011,28 +2415,32 @@ public final class ItemOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\nItem.proto\022\016warmup.service\032\021entity/ite" +
-      "m.proto\"D\n\013SaveRequest\022\014\n\004name\030\001 \001(\t\022\023\n\013" +
-      "description\030\002 \001(\t\022\022\n\nimage_urls\030\003 \003(\t\".\n" +
-      "\016FindAllRequest\022\014\n\004size\030\001 \001(\005\022\016\n\006lastId\030" +
-      "\002 \001(\005\"\035\n\017FindByIdRequest\022\n\n\002id\030\001 \001(\0032\304\001\n" +
-      "\004Item\0228\n\004Save\022\033.warmup.service.SaveReque" +
-      "st\032\023.warmup.entity.Item\022@\n\007FindAll\022\036.war" +
-      "mup.service.FindAllRequest\032\023.warmup.enti" +
-      "ty.Item0\001\022@\n\010FindById\022\037.warmup.service.F" +
-      "indByIdRequest\032\023.warmup.entity.ItemB#\n!c" +
-      "om.depromeet.warmup.grpc.serviceb\006proto3"
+      "m.proto\032\030type/category_type.proto\"\213\001\n\013Sa" +
+      "veRequest\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002" +
+      " \001(\t\022\022\n\nimage_urls\030\003 \003(\t\022\r\n\005place\030\004 \001(\t\022" +
+      ")\n\010category\030\005 \001(\0162\027.warmup.type.Categori" +
+      "es\022\013\n\003tag\030\006 \001(\t\".\n\016FindAllRequest\022\014\n\004siz" +
+      "e\030\001 \001(\005\022\016\n\006lastId\030\002 \001(\005\"\035\n\017FindByIdReque" +
+      "st\022\n\n\002id\030\001 \001(\0032\304\001\n\004Item\0228\n\004Save\022\033.warmup" +
+      ".service.SaveRequest\032\023.warmup.entity.Ite" +
+      "m\022@\n\007FindAll\022\036.warmup.service.FindAllReq" +
+      "uest\032\023.warmup.entity.Item0\001\022@\n\010FindById\022" +
+      "\037.warmup.service.FindByIdRequest\032\023.warmu" +
+      "p.entity.ItemB#\n!com.depromeet.warmup.gr" +
+      "pc.serviceb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.depromeet.warmup.grpc.entity.ItemOuterClass.getDescriptor(),
+          com.depromeet.warmup.grpc.type.CategoryType.getDescriptor(),
         });
     internal_static_warmup_service_SaveRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_warmup_service_SaveRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_warmup_service_SaveRequest_descriptor,
-        new java.lang.String[] { "Name", "Description", "ImageUrls", });
+        new java.lang.String[] { "Name", "Description", "ImageUrls", "Place", "Category", "Tag", });
     internal_static_warmup_service_FindAllRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_warmup_service_FindAllRequest_fieldAccessorTable = new
@@ -2046,6 +2454,7 @@ public final class ItemOuterClass {
         internal_static_warmup_service_FindByIdRequest_descriptor,
         new java.lang.String[] { "Id", });
     com.depromeet.warmup.grpc.entity.ItemOuterClass.getDescriptor();
+    com.depromeet.warmup.grpc.type.CategoryType.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

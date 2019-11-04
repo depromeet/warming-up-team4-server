@@ -34,13 +34,28 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
 
     // TODO: Images
 
+    @Column(nullable = false)
+    private String place;
+
+    @Column(nullable = false)
+    private String category;
+
+    @Column(nullable = false)
+    private String tag;
+
     @Builder
     public Item(final String name,
-                final String description) {
+                final String description,
+                final String place,
+                final String category,
+                final String tag) {
         barterStatus = BarterStatus.WAIT;
 
         this.name = name;
         this.description = description;
+        this.place = place;
+        this.category = category;
+        this.tag = tag;
     }
 
     public void updateStatus(final BarterStatusOuterClass.BarterStatus protobufBarterStatus) {
@@ -58,6 +73,7 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
                 .setName(name)
                 .setDescription(description)
                 .setBarterStatus(barterStatus.toProtobuf())
+
                 .build();
     }
 }
