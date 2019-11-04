@@ -274,7 +274,7 @@ public final class AlarmOuterClass {
       if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
       }
-      if (type_ != com.depromeet.warmup.grpc.type.AlarmTypeOuterClass.AlarmType.TODO.getNumber()) {
+      if (type_ != com.depromeet.warmup.grpc.type.AlarmTypeOuterClass.AlarmType.BARTER_REQUEST.getNumber()) {
         output.writeEnum(3, type_);
       }
       if (createdDate_ != 0L) {
@@ -299,7 +299,7 @@ public final class AlarmOuterClass {
       if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
       }
-      if (type_ != com.depromeet.warmup.grpc.type.AlarmTypeOuterClass.AlarmType.TODO.getNumber()) {
+      if (type_ != com.depromeet.warmup.grpc.type.AlarmTypeOuterClass.AlarmType.BARTER_REQUEST.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, type_);
       }

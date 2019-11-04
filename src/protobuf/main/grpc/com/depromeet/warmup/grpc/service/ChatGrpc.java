@@ -27,35 +27,35 @@ public final class ChatGrpc {
   public static final String SERVICE_NAME = "warmup.service.Chat";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64> getSendMethod;
+  private static volatile io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest,
+      com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse> getJoinMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "Send",
-      requestType = com.google.protobuf.Empty.class,
-      responseType = com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64> getSendMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64> getSendMethod;
-    if ((getSendMethod = ChatGrpc.getSendMethod) == null) {
+      fullMethodName = SERVICE_NAME + '/' + "Join",
+      requestType = com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest.class,
+      responseType = com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest,
+      com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse> getJoinMethod() {
+    io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest, com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse> getJoinMethod;
+    if ((getJoinMethod = ChatGrpc.getJoinMethod) == null) {
       synchronized (ChatGrpc.class) {
-        if ((getSendMethod = ChatGrpc.getSendMethod) == null) {
-          ChatGrpc.getSendMethod = getSendMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Send"))
+        if ((getJoinMethod = ChatGrpc.getJoinMethod) == null) {
+          ChatGrpc.getJoinMethod = getJoinMethod =
+              io.grpc.MethodDescriptor.<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest, com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Join"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64.getDefaultInstance()))
-              .setSchemaDescriptor(new ChatMethodDescriptorSupplier("Send"))
+                  com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ChatMethodDescriptorSupplier("Join"))
               .build();
         }
       }
     }
-    return getSendMethod;
+    return getJoinMethod;
   }
 
   /**
@@ -86,24 +86,21 @@ public final class ChatGrpc {
   public static abstract class ChatImplBase implements io.grpc.BindableService {
 
     /**
-     * <pre>
-     * TODO: 채팅 보내기
-     * </pre>
      */
-    public void send(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64> responseObserver) {
-      asyncUnimplementedUnaryCall(getSendMethod(), responseObserver);
+    public io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest> join(
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getJoinMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getSendMethod(),
-            asyncUnaryCall(
+            getJoinMethod(),
+            asyncBidiStreamingCall(
               new MethodHandlers<
-                com.google.protobuf.Empty,
-                com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64>(
-                  this, METHODID_SEND)))
+                com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest,
+                com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse>(
+                  this, METHODID_JOIN)))
           .build();
     }
   }
@@ -127,14 +124,11 @@ public final class ChatGrpc {
     }
 
     /**
-     * <pre>
-     * TODO: 채팅 보내기
-     * </pre>
      */
-    public void send(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getSendMethod(), getCallOptions()), request, responseObserver);
+    public io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest> join(
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse> responseObserver) {
+      return asyncBidiStreamingCall(
+          getChannel().newCall(getJoinMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -155,16 +149,6 @@ public final class ChatGrpc {
         io.grpc.CallOptions callOptions) {
       return new ChatBlockingStub(channel, callOptions);
     }
-
-    /**
-     * <pre>
-     * TODO: 채팅 보내기
-     * </pre>
-     */
-    public com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64 send(com.google.protobuf.Empty request) {
-      return blockingUnaryCall(
-          getChannel(), getSendMethod(), getCallOptions(), request);
-    }
   }
 
   /**
@@ -184,20 +168,9 @@ public final class ChatGrpc {
         io.grpc.CallOptions callOptions) {
       return new ChatFutureStub(channel, callOptions);
     }
-
-    /**
-     * <pre>
-     * TODO: 채팅 보내기
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64> send(
-        com.google.protobuf.Empty request) {
-      return futureUnaryCall(
-          getChannel().newCall(getSendMethod(), getCallOptions()), request);
-    }
   }
 
-  private static final int METHODID_SEND = 0;
+  private static final int METHODID_JOIN = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -216,10 +189,6 @@ public final class ChatGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SEND:
-          serviceImpl.send((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.vo.Int64OuterClass.Int64>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -230,6 +199,9 @@ public final class ChatGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_JOIN:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.join(
+              (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -281,7 +253,7 @@ public final class ChatGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ChatFileDescriptorSupplier())
-              .addMethod(getSendMethod())
+              .addMethod(getJoinMethod())
               .build();
         }
       }

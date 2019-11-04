@@ -1,7 +1,7 @@
 package com.depromeet.warmup.global.security.jwt;
 
 @FunctionalInterface
-public interface JwtGenerator<T> {
+public interface JwtIdGenerator {
 
-    String generate(final T user);
+    String generate();
 }

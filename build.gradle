@@ -21,7 +21,7 @@ ext {
             'spring-boot-redisson'  : '3.11.+',
             'uuid'                  : '3.2.+',
             'java-jwt'              : '3.+',
-            'reactor'               : '3.3.+'
+            'reactor'               : '3.3.+',
     ]
 }
 
@@ -124,6 +124,7 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
     // H2

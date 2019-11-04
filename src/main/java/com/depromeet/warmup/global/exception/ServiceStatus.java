@@ -8,9 +8,13 @@ public enum ServiceStatus {
     NOT_IMPLEMENTED_YET,
 
     // Authentication
+    INVALID_ACCESS_TOKEN,
+    ACCESS_TOKEN_EXPIRED,
+    SIGN_IN_ANOTHER_DEVICE,
     DUPLICATED_EMAIL,
     AUTHENTICATION_NOT_FOUND,
 
     // University
     UNIVERSITY_NOT_FOUND,
+    ;
 }

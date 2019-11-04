@@ -28,28 +28,28 @@ public final class NotificationGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm> getSubscribeMethod;
+      com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm> getSubscribeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "Subscribe",
       requestType = com.google.protobuf.Empty.class,
-      responseType = com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm.class,
+      responseType = com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm> getSubscribeMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm> getSubscribeMethod;
+      com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm> getSubscribeMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm> getSubscribeMethod;
     if ((getSubscribeMethod = NotificationGrpc.getSubscribeMethod) == null) {
       synchronized (NotificationGrpc.class) {
         if ((getSubscribeMethod = NotificationGrpc.getSubscribeMethod) == null) {
           NotificationGrpc.getSubscribeMethod = getSubscribeMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Subscribe"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm.getDefaultInstance()))
+                  com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm.getDefaultInstance()))
               .setSchemaDescriptor(new NotificationMethodDescriptorSupplier("Subscribe"))
               .build();
         }
@@ -122,7 +122,7 @@ public final class NotificationGrpc {
      * </pre>
      */
     public void subscribe(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm> responseObserver) {
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm> responseObserver) {
       asyncUnimplementedUnaryCall(getSubscribeMethod(), responseObserver);
     }
 
@@ -143,7 +143,7 @@ public final class NotificationGrpc {
             asyncServerStreamingCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
-                com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm>(
+                com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm>(
                   this, METHODID_SUBSCRIBE)))
           .addMethod(
             getCheckMethod(),
@@ -180,7 +180,7 @@ public final class NotificationGrpc {
      * </pre>
      */
     public void subscribe(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm> responseObserver) {
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getSubscribeMethod(), getCallOptions()), request, responseObserver);
     }
@@ -220,7 +220,7 @@ public final class NotificationGrpc {
      * 알람 받기
      * </pre>
      */
-    public java.util.Iterator<com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm> subscribe(
+    public java.util.Iterator<com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm> subscribe(
         com.google.protobuf.Empty request) {
       return blockingServerStreamingCall(
           getChannel(), getSubscribeMethod(), getCallOptions(), request);
@@ -268,7 +268,7 @@ public final class NotificationGrpc {
       switch (methodId) {
         case METHODID_SUBSCRIBE:
           serviceImpl.subscribe((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.AlarmOuterClass.Alarm>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.NotificationOuterClass.Alarm>) responseObserver);
           break;
         default:
           throw new AssertionError();
