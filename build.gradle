@@ -11,7 +11,7 @@ group = 'com.depromeet'
 version = '0.0.1'
 
 ext {
-    javaVersion = JavaVersion.VERSION_12
+    javaVersion = 12
 
     versions = [
             'grpc'                  : '1.+',
