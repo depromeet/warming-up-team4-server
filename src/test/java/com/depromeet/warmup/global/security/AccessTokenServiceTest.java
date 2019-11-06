@@ -73,7 +73,8 @@ class AccessTokenServiceTest extends RedisBaseSupports {
                 .token(token)
                 .id(id)
                 .timeToLiveMillis(timeToLiveMillis)
-                .build());
+                .build())
+                .block();
 
         Thread.sleep(timeToLiveMillis);
 
