@@ -117,3 +117,5 @@ $RECYCLE.BIN/
 *.lnk
 
 !gradle/wrapper/gradle-wrapper.jar
+
+volume
