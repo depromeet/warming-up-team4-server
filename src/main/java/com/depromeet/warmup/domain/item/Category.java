@@ -4,7 +4,6 @@ import com.depromeet.warmup.grpc.type.CategoryType;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 public enum Category {
@@ -18,7 +17,6 @@ public enum Category {
     FURNITURE(CategoryType.Categories.FURNITURE, true),
     PET(CategoryType.Categories.PET, true),
     ETC(CategoryType.Categories.ETC, true);
-
 
     private final CategoryType.Categories protobufType;
     private final boolean canChange;
