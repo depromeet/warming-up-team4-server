@@ -1,6 +1,5 @@
 package com.depromeet.warmup.domain.item;
 
-import com.depromeet.warmup.domain.authentication.Authentication;
 import com.depromeet.warmup.domain.authentication.AuthenticationService;
 import com.depromeet.warmup.global.entity.ProtobufConverter;
 import com.depromeet.warmup.global.interceptor.AuthInterceptor;
@@ -11,8 +10,6 @@ import com.depromeet.warmup.grpc.service.ItemOuterClass;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.server.service.GrpcService;
-
-import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @GrpcService(interceptors = {AuthInterceptor.class})
@@ -63,7 +60,6 @@ class ItemController extends ItemGrpc.ItemImplBase {
                         responseObserver::onError,
                         responseObserver::onCompleted);
     }
-
 
     @Override
     public void findItemByCategory(final ItemOuterClass.FindByCategoryRequest request,

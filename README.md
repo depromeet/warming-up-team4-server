@@ -18,6 +18,7 @@
     * JUnit 5
 * 문서화
     * [Protocol Buffers](https://github.com/depromeet/warming-up-team4-server/wiki/Protocol-Buffers%EB%9E%80%3F) DSL로 대체
+        * [Proto 목록](https://github.com/depromeet/warming-up-team4-proto)
 
 ## 폴더 구조
 * DDD 기반의 폴더 구조를 가졌습니다.

@@ -6,8 +6,10 @@ import com.depromeet.warmup.domain.university.University;
 import com.depromeet.warmup.domain.university.UniversityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+@Profile("!test")
 @RequiredArgsConstructor
 @Component
 public class TemporaryDataInjector implements CommandLineRunner {
