@@ -46,7 +46,8 @@ class AccessTokenServiceTest extends RedisBaseSupports {
                 .token(token)
                 .id(id)
                 .timeToLiveMillis(1_000)
-                .build());
+                .build())
+                .block();
 
         // when / then
         StepVerifier.create(accessTokenService.findById(id))
