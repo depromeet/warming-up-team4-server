@@ -1,6 +1,7 @@
 package com.depromeet.warmup.domain.item;
 
 import com.depromeet.warmup.domain.barter.BarterStatus;
+import com.depromeet.warmup.domain.user.User;
 import com.depromeet.warmup.global.entity.DateAuditEntity;
 import com.depromeet.warmup.global.entity.ProtobufConverter;
 import com.depromeet.warmup.grpc.entity.ItemOuterClass;
@@ -8,10 +9,8 @@ import com.depromeet.warmup.grpc.type.BarterStatusOuterClass;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +36,9 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
 
     // TODO: User
 
+    @ManyToOne
+    private User user;
+
     @Column(nullable = false)
     private String image;
 
@@ -57,7 +59,7 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
                 final String place,
                 final Category category,
                 final String tag,
-                final LocalDateTime createDate) {
+                final User user) {
         barterStatus = BarterStatus.WAIT;
 
         this.name = name;
@@ -66,6 +68,7 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
         this.place = place;
         this.category = category;
         this.tag = tag;
+        this.user = user;
     }
 
     public void updateStatus(final BarterStatusOuterClass.BarterStatus protobufBarterStatus) {
@@ -80,6 +83,7 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
     @Override
     public ItemOuterClass.Item toProtoBuf() {
         return ItemOuterClass.Item.newBuilder()
+                .setId(id)
                 .setName(name)
                 .setDescription(description)
                 .setBarterStatus(barterStatus.toProtobuf())
@@ -88,6 +92,8 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
                 .setCategory(category.toProtobuf())
                 .setTag(tag)
                 .setCreatedDate(getCreatedDateMillis())
+                .setLastModifiedDate(getLastModifiedDateMillis())
+                .setOwner(user.toProtoBuf())
                 .build();
     }
 }

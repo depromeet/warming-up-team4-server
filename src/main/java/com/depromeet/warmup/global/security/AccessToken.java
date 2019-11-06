@@ -57,11 +57,21 @@ public class AccessToken {
     }
 
     public String getEmail() {
+        // TODO: refactoring
+        if (Objects.isNull(decodedJWT)) {
+            decodedJWT = JWT.decode(token);
+        }
+
         return decodedJWT.getClaim(AccessToken.EMAIL_CLAIM_KEY)
                 .asString();
     }
 
     public String getNickname() {
+        // TODO: refactoring
+        if (Objects.isNull(decodedJWT)) {
+            decodedJWT = JWT.decode(token);
+        }
+
         return decodedJWT.getClaim(AccessToken.NICKNAME_CLAIM_KEY)
                 .asString();
     }
