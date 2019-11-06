@@ -67,13 +67,14 @@
 * 알람
     * 물물교환 요청이 올 경우 알람을 받아볼 수 있다.
 
-## 개발 및 협업 방법
+## 개발 방법
 
 ### 개발 사이클
-* TODO
+![develop-cycle](./asset/develop-cycle.png)
 
-### 커뮤니케이션 방법
-* TODO
+#### [Issue 목록](https://github.com/depromeet/warming-up-team4-server/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+
+#### [Pull Request 목록](https://github.com/depromeet/warming-up-team4-server/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)
 
 ---
 
