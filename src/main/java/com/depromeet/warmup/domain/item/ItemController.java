@@ -1,7 +1,10 @@
 package com.depromeet.warmup.domain.item;
 
+import com.depromeet.warmup.domain.authentication.Authentication;
 import com.depromeet.warmup.domain.authentication.AuthenticationService;
 import com.depromeet.warmup.global.entity.ProtobufConverter;
+import com.depromeet.warmup.global.exception.ServiceRuntimeException;
+import com.depromeet.warmup.global.exception.ServiceStatus;
 import com.depromeet.warmup.global.interceptor.AuthInterceptor;
 import com.depromeet.warmup.global.security.AccessToken;
 import com.depromeet.warmup.global.security.AccessTokenContext;
@@ -21,20 +24,21 @@ class ItemController extends ItemGrpc.ItemImplBase {
     @Override
     public void save(final ItemOuterClass.SaveRequest request,
                      final StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> responseObserver) {
-        final var user = AccessTokenContext.getAccessToken()
+        AccessTokenContext.getAccessToken()
                 .map(AccessToken::getEmail)
                 .map(authenticationService::findByEmail)
-                .get().block().getUser();
-
-        itemService.save(Item.builder()
-                .name(request.getName())
-                .description(request.getDescription())
-                .image(request.getImageList())
-                .place(request.getPlace())
-                .category(Category.from(request.getCategory()))
-                .tag(request.getTag())
-                .user(user)
-                .build())
+                .orElseThrow(() -> ServiceRuntimeException.status(ServiceStatus.AUTHENTICATION_NOT_FOUND))
+                .map(Authentication::getUser)
+                .map(user -> Item.builder()
+                        .name(request.getName())
+                        .description(request.getDescription())
+                        .image(request.getImageList())
+                        .place(request.getPlace())
+                        .category(Category.from(request.getCategory()))
+                        .tag(request.getTag())
+                        .user(user)
+                        .build())
+                .flatMap(itemService::save)
                 .map(ProtobufConverter::toProtoBuf)
                 .subscribe(responseObserver::onNext,
                         responseObserver::onError,
