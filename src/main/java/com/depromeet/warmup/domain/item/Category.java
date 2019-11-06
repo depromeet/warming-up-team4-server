@@ -7,29 +7,25 @@ import java.util.Arrays;
 
 @RequiredArgsConstructor
 public enum Category {
-    FOOD(CategoryType.Categories.FOOD, true),
-    WOMAN(CategoryType.Categories.WOMAN, true),
-    MAN(CategoryType.Categories.MAN, true),
-    NECESSARIES(CategoryType.Categories.NECESSARIES, true),
-    BEAUTY(CategoryType.Categories.BEAUTY, true),
-    ELECTRONICS(CategoryType.Categories.ELECTRONICS, true),
-    BOOK(CategoryType.Categories.BOOK, true),
-    FURNITURE(CategoryType.Categories.FURNITURE, true),
-    PET(CategoryType.Categories.PET, true),
-    ETC(CategoryType.Categories.ETC, true);
+
+    FOOD(CategoryType.Categories.FOOD),
+    WOMAN(CategoryType.Categories.WOMAN),
+    MAN(CategoryType.Categories.MAN),
+    NECESSARIES(CategoryType.Categories.NECESSARIES),
+    BEAUTY(CategoryType.Categories.BEAUTY),
+    ELECTRONICS(CategoryType.Categories.ELECTRONICS),
+    BOOK(CategoryType.Categories.BOOK),
+    FURNITURE(CategoryType.Categories.FURNITURE),
+    PET(CategoryType.Categories.PET),
+    ETC(CategoryType.Categories.ETC);
 
     private final CategoryType.Categories protobufType;
-    private final boolean canChange;
 
     public static Category from(final CategoryType.Categories protobufType) {
         return Arrays.stream(values())
                 .filter(barterStatus -> barterStatus.protobufType == protobufType)
                 .findFirst()
                 .orElseThrow();
-    }
-
-    public boolean canNotChange() {
-        return !canChange;
     }
 
     public CategoryType.Categories toProtobuf() {
