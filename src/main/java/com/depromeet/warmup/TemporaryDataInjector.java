@@ -24,13 +24,19 @@ public class TemporaryDataInjector implements CommandLineRunner {
                 .emailDomain("test.com")
                 .build());
 
-        final var authentication = accountService.signUp(Authentication.builder()
+        accountService.signUp(Authentication.builder()
                 .email("test@test.com")
                 .password("test")
                 .nickname("nickname")
                 .build())
                 .block();
-        final var signInResponse = accountService.signIn(authentication).block();
+
+        final var signInResponse = accountService.signIn(Authentication.builder()
+                .email("test@test.com")
+                .password("test")
+                .nickname("nickname")
+                .build())
+                .block();
 
         final var accessToken = signInResponse.getAccessToken();
 
