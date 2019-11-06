@@ -151,9 +151,6 @@ dependencies {
     implementation(group: 'io.projectreactor', name: 'reactor-core', version: versions['reactor'])
     testImplementation(group: 'io.projectreactor', name: 'reactor-test', version: versions['reactor'])
 
-    // Redisson
-//    implementation(group: 'org.redisson', name: 'redisson-spring-boot-starter', version: versions['spring-boot-redisson'])
-
     // Redis
     implementation(group: 'it.ozimov', name: 'embedded-redis', version: versions['embedded-redis'])
 

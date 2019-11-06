@@ -1,5 +1,8 @@
 package com.depromeet.warmup.domain.notification;
 
+import com.depromeet.warmup.global.exception.ServiceRuntimeException;
+import com.depromeet.warmup.global.exception.ServiceStatus;
+import com.depromeet.warmup.global.security.AccessTokenContext;
 import com.depromeet.warmup.grpc.service.NotificationGrpc;
 import com.depromeet.warmup.grpc.service.NotificationOuterClass;
 import com.google.protobuf.Empty;
@@ -10,7 +13,6 @@ import reactor.core.publisher.UnicastProcessor;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 @GrpcService
 public class NotificationController extends NotificationGrpc.NotificationImplBase {
@@ -20,14 +22,12 @@ public class NotificationController extends NotificationGrpc.NotificationImplBas
     public static final Map<Long, UnicastProcessor<NotificationOuterClass.Alarm>> notifications =
             new ConcurrentHashMap<>();
 
-    private final AtomicLong autoIncrement = new AtomicLong();
-
     @Override
     public void subscribe(final Empty request,
                           final StreamObserver<NotificationOuterClass.Alarm> responseObserver) {
-        //        final var accessToken = AccessTokenContext.getAccessToken()
-//                .orElseThrow(() -> ServiceRuntimeException.status(ServiceStatus.BAD_REQUEST));
-        final var from = autoIncrement.incrementAndGet(); // accessToken.getUserId();
+        final var accessToken = AccessTokenContext.getAccessToken()
+                .orElseThrow(() -> ServiceRuntimeException.status(ServiceStatus.BAD_REQUEST));
+        final var from = accessToken.getUserId();
         final var notification = getNotification(from);
 
         notification.subscribe(responseObserver::onNext,
