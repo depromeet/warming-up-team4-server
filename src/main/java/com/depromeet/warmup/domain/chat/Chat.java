@@ -3,7 +3,7 @@ package com.depromeet.warmup.domain.chat;
 import com.depromeet.warmup.domain.user.User;
 import com.depromeet.warmup.global.entity.CreateAuditEntity;
 import com.depromeet.warmup.global.entity.ProtobufConverter;
-import com.depromeet.warmup.grpc.entity.ChatMessage;
+import com.depromeet.warmup.grpc.entity.ChatMessageOuterClass;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table
 @Entity
-public class Chat extends CreateAuditEntity implements ProtobufConverter<ChatMessage.Chat> {
+public class Chat extends CreateAuditEntity implements ProtobufConverter<ChatMessageOuterClass.ChatMessage> {
 
     @Getter
     @Column(nullable = false)
@@ -46,8 +46,8 @@ public class Chat extends CreateAuditEntity implements ProtobufConverter<ChatMes
     }
 
     @Override
-    public ChatMessage.Chat toProtoBuf() {
-        return ChatMessage.Chat.newBuilder()
+    public ChatMessageOuterClass.ChatMessage toProtoBuf() {
+        return ChatMessageOuterClass.ChatMessage.newBuilder()
                 .setId(getId())
                 .setMessage(message)
                 .setFrom(from.toProtoBuf())

@@ -43,29 +43,29 @@ public final class ItemOuterClass {
         getDescriptionBytes();
 
     /**
-     * <code>repeated string image_urls = 3;</code>
-     * @return A list containing the imageUrls.
+     * <code>repeated string image = 3;</code>
+     * @return A list containing the image.
      */
     java.util.List<java.lang.String>
-        getImageUrlsList();
+        getImageList();
     /**
-     * <code>repeated string image_urls = 3;</code>
-     * @return The count of imageUrls.
+     * <code>repeated string image = 3;</code>
+     * @return The count of image.
      */
-    int getImageUrlsCount();
+    int getImageCount();
     /**
-     * <code>repeated string image_urls = 3;</code>
+     * <code>repeated string image = 3;</code>
      * @param index The index of the element to return.
-     * @return The imageUrls at the given index.
+     * @return The image at the given index.
      */
-    java.lang.String getImageUrls(int index);
+    java.lang.String getImage(int index);
     /**
-     * <code>repeated string image_urls = 3;</code>
+     * <code>repeated string image = 3;</code>
      * @param index The index of the value to return.
-     * @return The bytes of the imageUrls at the given index.
+     * @return The bytes of the image at the given index.
      */
     com.google.protobuf.ByteString
-        getImageUrlsBytes(int index);
+        getImageBytes(int index);
 
     /**
      * <code>string place = 4;</code>
@@ -117,7 +117,7 @@ public final class ItemOuterClass {
     private SaveRequest() {
       name_ = "";
       description_ = "";
-      imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      image_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       place_ = "";
       category_ = 0;
       tag_ = "";
@@ -169,10 +169,10 @@ public final class ItemOuterClass {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                imageUrls_ = new com.google.protobuf.LazyStringArrayList();
+                image_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              imageUrls_.add(s);
+              image_.add(s);
               break;
             }
             case 34: {
@@ -209,7 +209,7 @@ public final class ItemOuterClass {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          imageUrls_ = imageUrls_.getUnmodifiableView();
+          image_ = image_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -300,39 +300,39 @@ public final class ItemOuterClass {
       }
     }
 
-    public static final int IMAGE_URLS_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList imageUrls_;
+    public static final int IMAGE_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList image_;
     /**
-     * <code>repeated string image_urls = 3;</code>
-     * @return A list containing the imageUrls.
+     * <code>repeated string image = 3;</code>
+     * @return A list containing the image.
      */
     public com.google.protobuf.ProtocolStringList
-        getImageUrlsList() {
-      return imageUrls_;
+        getImageList() {
+      return image_;
     }
     /**
-     * <code>repeated string image_urls = 3;</code>
-     * @return The count of imageUrls.
+     * <code>repeated string image = 3;</code>
+     * @return The count of image.
      */
-    public int getImageUrlsCount() {
-      return imageUrls_.size();
+    public int getImageCount() {
+      return image_.size();
     }
     /**
-     * <code>repeated string image_urls = 3;</code>
+     * <code>repeated string image = 3;</code>
      * @param index The index of the element to return.
-     * @return The imageUrls at the given index.
+     * @return The image at the given index.
      */
-    public java.lang.String getImageUrls(int index) {
-      return imageUrls_.get(index);
+    public java.lang.String getImage(int index) {
+      return image_.get(index);
     }
     /**
-     * <code>repeated string image_urls = 3;</code>
+     * <code>repeated string image = 3;</code>
      * @param index The index of the value to return.
-     * @return The bytes of the imageUrls at the given index.
+     * @return The bytes of the image at the given index.
      */
     public com.google.protobuf.ByteString
-        getImageUrlsBytes(int index) {
-      return imageUrls_.getByteString(index);
+        getImageBytes(int index) {
+      return image_.getByteString(index);
     }
 
     public static final int PLACE_FIELD_NUMBER = 4;
@@ -446,8 +446,8 @@ public final class ItemOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
-      for (int i = 0; i < imageUrls_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageUrls_.getRaw(i));
+      for (int i = 0; i < image_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_.getRaw(i));
       }
       if (!getPlaceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, place_);
@@ -475,11 +475,11 @@ public final class ItemOuterClass {
       }
       {
         int dataSize = 0;
-        for (int i = 0; i < imageUrls_.size(); i++) {
-          dataSize += computeStringSizeNoTag(imageUrls_.getRaw(i));
+        for (int i = 0; i < image_.size(); i++) {
+          dataSize += computeStringSizeNoTag(image_.getRaw(i));
         }
         size += dataSize;
-        size += 1 * getImageUrlsList().size();
+        size += 1 * getImageList().size();
       }
       if (!getPlaceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, place_);
@@ -510,8 +510,8 @@ public final class ItemOuterClass {
           .equals(other.getName())) return false;
       if (!getDescription()
           .equals(other.getDescription())) return false;
-      if (!getImageUrlsList()
-          .equals(other.getImageUrlsList())) return false;
+      if (!getImageList()
+          .equals(other.getImageList())) return false;
       if (!getPlace()
           .equals(other.getPlace())) return false;
       if (category_ != other.category_) return false;
@@ -532,9 +532,9 @@ public final class ItemOuterClass {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      if (getImageUrlsCount() > 0) {
-        hash = (37 * hash) + IMAGE_URLS_FIELD_NUMBER;
-        hash = (53 * hash) + getImageUrlsList().hashCode();
+      if (getImageCount() > 0) {
+        hash = (37 * hash) + IMAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getImageList().hashCode();
       }
       hash = (37 * hash) + PLACE_FIELD_NUMBER;
       hash = (53 * hash) + getPlace().hashCode();
@@ -679,7 +679,7 @@ public final class ItemOuterClass {
 
         description_ = "";
 
-        imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        image_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         place_ = "";
 
@@ -717,10 +717,10 @@ public final class ItemOuterClass {
         result.name_ = name_;
         result.description_ = description_;
         if (((bitField0_ & 0x00000001) != 0)) {
-          imageUrls_ = imageUrls_.getUnmodifiableView();
+          image_ = image_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.imageUrls_ = imageUrls_;
+        result.image_ = image_;
         result.place_ = place_;
         result.category_ = category_;
         result.tag_ = tag_;
@@ -780,13 +780,13 @@ public final class ItemOuterClass {
           description_ = other.description_;
           onChanged();
         }
-        if (!other.imageUrls_.isEmpty()) {
-          if (imageUrls_.isEmpty()) {
-            imageUrls_ = other.imageUrls_;
+        if (!other.image_.isEmpty()) {
+          if (image_.isEmpty()) {
+            image_ = other.image_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureImageUrlsIsMutable();
-            imageUrls_.addAll(other.imageUrls_);
+            ensureImageIsMutable();
+            image_.addAll(other.image_);
           }
           onChanged();
         }
@@ -983,112 +983,112 @@ public final class ItemOuterClass {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureImageUrlsIsMutable() {
+      private com.google.protobuf.LazyStringList image_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureImageIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          imageUrls_ = new com.google.protobuf.LazyStringArrayList(imageUrls_);
+          image_ = new com.google.protobuf.LazyStringArrayList(image_);
           bitField0_ |= 0x00000001;
          }
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
-       * @return A list containing the imageUrls.
+       * <code>repeated string image = 3;</code>
+       * @return A list containing the image.
        */
       public com.google.protobuf.ProtocolStringList
-          getImageUrlsList() {
-        return imageUrls_.getUnmodifiableView();
+          getImageList() {
+        return image_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
-       * @return The count of imageUrls.
+       * <code>repeated string image = 3;</code>
+       * @return The count of image.
        */
-      public int getImageUrlsCount() {
-        return imageUrls_.size();
+      public int getImageCount() {
+        return image_.size();
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
+       * <code>repeated string image = 3;</code>
        * @param index The index of the element to return.
-       * @return The imageUrls at the given index.
+       * @return The image at the given index.
        */
-      public java.lang.String getImageUrls(int index) {
-        return imageUrls_.get(index);
+      public java.lang.String getImage(int index) {
+        return image_.get(index);
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
+       * <code>repeated string image = 3;</code>
        * @param index The index of the value to return.
-       * @return The bytes of the imageUrls at the given index.
+       * @return The bytes of the image at the given index.
        */
       public com.google.protobuf.ByteString
-          getImageUrlsBytes(int index) {
-        return imageUrls_.getByteString(index);
+          getImageBytes(int index) {
+        return image_.getByteString(index);
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
+       * <code>repeated string image = 3;</code>
        * @param index The index to set the value at.
-       * @param value The imageUrls to set.
+       * @param value The image to set.
        * @return This builder for chaining.
        */
-      public Builder setImageUrls(
+      public Builder setImage(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureImageUrlsIsMutable();
-        imageUrls_.set(index, value);
+  ensureImageIsMutable();
+        image_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
-       * @param value The imageUrls to add.
+       * <code>repeated string image = 3;</code>
+       * @param value The image to add.
        * @return This builder for chaining.
        */
-      public Builder addImageUrls(
+      public Builder addImage(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureImageUrlsIsMutable();
-        imageUrls_.add(value);
+  ensureImageIsMutable();
+        image_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
-       * @param values The imageUrls to add.
+       * <code>repeated string image = 3;</code>
+       * @param values The image to add.
        * @return This builder for chaining.
        */
-      public Builder addAllImageUrls(
+      public Builder addAllImage(
           java.lang.Iterable<java.lang.String> values) {
-        ensureImageUrlsIsMutable();
+        ensureImageIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, imageUrls_);
+            values, image_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
+       * <code>repeated string image = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearImageUrls() {
-        imageUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      public Builder clearImage() {
+        image_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string image_urls = 3;</code>
-       * @param value The bytes of the imageUrls to add.
+       * <code>repeated string image = 3;</code>
+       * @param value The bytes of the image to add.
        * @return This builder for chaining.
        */
-      public Builder addImageUrlsBytes(
+      public Builder addImageBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensureImageUrlsIsMutable();
-        imageUrls_.add(value);
+        ensureImageIsMutable();
+        image_.add(value);
         onChanged();
         return this;
       }
@@ -2390,6 +2390,529 @@ public final class ItemOuterClass {
 
   }
 
+  public interface FindByCategoryRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:warmup.service.FindByCategoryRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.warmup.type.Categories category = 1;</code>
+     * @return The enum numeric value on the wire for category.
+     */
+    int getCategoryValue();
+    /**
+     * <code>.warmup.type.Categories category = 1;</code>
+     * @return The category.
+     */
+    com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory();
+  }
+  /**
+   * Protobuf type {@code warmup.service.FindByCategoryRequest}
+   */
+  public  static final class FindByCategoryRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:warmup.service.FindByCategoryRequest)
+      FindByCategoryRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FindByCategoryRequest.newBuilder() to construct.
+    private FindByCategoryRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FindByCategoryRequest() {
+      category_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FindByCategoryRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FindByCategoryRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              category_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.depromeet.warmup.grpc.service.ItemOuterClass.internal_static_warmup_service_FindByCategoryRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.depromeet.warmup.grpc.service.ItemOuterClass.internal_static_warmup_service_FindByCategoryRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.class, com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.Builder.class);
+    }
+
+    public static final int CATEGORY_FIELD_NUMBER = 1;
+    private int category_;
+    /**
+     * <code>.warmup.type.Categories category = 1;</code>
+     * @return The enum numeric value on the wire for category.
+     */
+    public int getCategoryValue() {
+      return category_;
+    }
+    /**
+     * <code>.warmup.type.Categories category = 1;</code>
+     * @return The category.
+     */
+    public com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory() {
+      @SuppressWarnings("deprecation")
+      com.depromeet.warmup.grpc.type.CategoryType.Categories result = com.depromeet.warmup.grpc.type.CategoryType.Categories.valueOf(category_);
+      return result == null ? com.depromeet.warmup.grpc.type.CategoryType.Categories.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (category_ != com.depromeet.warmup.grpc.type.CategoryType.Categories.FOOD.getNumber()) {
+        output.writeEnum(1, category_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (category_ != com.depromeet.warmup.grpc.type.CategoryType.Categories.FOOD.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, category_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest)) {
+        return super.equals(obj);
+      }
+      com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest other = (com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest) obj;
+
+      if (category_ != other.category_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
+      hash = (53 * hash) + category_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code warmup.service.FindByCategoryRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:warmup.service.FindByCategoryRequest)
+        com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.depromeet.warmup.grpc.service.ItemOuterClass.internal_static_warmup_service_FindByCategoryRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.depromeet.warmup.grpc.service.ItemOuterClass.internal_static_warmup_service_FindByCategoryRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.class, com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.Builder.class);
+      }
+
+      // Construct using com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        category_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.depromeet.warmup.grpc.service.ItemOuterClass.internal_static_warmup_service_FindByCategoryRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest getDefaultInstanceForType() {
+        return com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest build() {
+        com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest buildPartial() {
+        com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest result = new com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest(this);
+        result.category_ = category_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest) {
+          return mergeFrom((com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest other) {
+        if (other == com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.getDefaultInstance()) return this;
+        if (other.category_ != 0) {
+          setCategoryValue(other.getCategoryValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int category_ = 0;
+      /**
+       * <code>.warmup.type.Categories category = 1;</code>
+       * @return The enum numeric value on the wire for category.
+       */
+      public int getCategoryValue() {
+        return category_;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 1;</code>
+       * @param value The enum numeric value on the wire for category to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategoryValue(int value) {
+        category_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 1;</code>
+       * @return The category.
+       */
+      public com.depromeet.warmup.grpc.type.CategoryType.Categories getCategory() {
+        @SuppressWarnings("deprecation")
+        com.depromeet.warmup.grpc.type.CategoryType.Categories result = com.depromeet.warmup.grpc.type.CategoryType.Categories.valueOf(category_);
+        return result == null ? com.depromeet.warmup.grpc.type.CategoryType.Categories.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 1;</code>
+       * @param value The category to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategory(com.depromeet.warmup.grpc.type.CategoryType.Categories value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        category_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.warmup.type.Categories category = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCategory() {
+        
+        category_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:warmup.service.FindByCategoryRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:warmup.service.FindByCategoryRequest)
+    private static final com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest();
+    }
+
+    public static com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FindByCategoryRequest>
+        PARSER = new com.google.protobuf.AbstractParser<FindByCategoryRequest>() {
+      @java.lang.Override
+      public FindByCategoryRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FindByCategoryRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FindByCategoryRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FindByCategoryRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_warmup_service_SaveRequest_descriptor;
   private static final 
@@ -2405,6 +2928,11 @@ public final class ItemOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_warmup_service_FindByIdRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_warmup_service_FindByCategoryRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_warmup_service_FindByCategoryRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2415,19 +2943,23 @@ public final class ItemOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\nItem.proto\022\016warmup.service\032\021entity/ite" +
-      "m.proto\032\030type/category_type.proto\"\213\001\n\013Sa" +
+      "m.proto\032\030type/category_type.proto\"\206\001\n\013Sa" +
       "veRequest\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002" +
-      " \001(\t\022\022\n\nimage_urls\030\003 \003(\t\022\r\n\005place\030\004 \001(\t\022" +
-      ")\n\010category\030\005 \001(\0162\027.warmup.type.Categori" +
-      "es\022\013\n\003tag\030\006 \001(\t\".\n\016FindAllRequest\022\014\n\004siz" +
-      "e\030\001 \001(\005\022\016\n\006lastId\030\002 \001(\005\"\035\n\017FindByIdReque" +
-      "st\022\n\n\002id\030\001 \001(\0032\304\001\n\004Item\0228\n\004Save\022\033.warmup" +
-      ".service.SaveRequest\032\023.warmup.entity.Ite" +
-      "m\022@\n\007FindAll\022\036.warmup.service.FindAllReq" +
-      "uest\032\023.warmup.entity.Item0\001\022@\n\010FindById\022" +
-      "\037.warmup.service.FindByIdRequest\032\023.warmu" +
-      "p.entity.ItemB#\n!com.depromeet.warmup.gr" +
-      "pc.serviceb\006proto3"
+      " \001(\t\022\r\n\005image\030\003 \003(\t\022\r\n\005place\030\004 \001(\t\022)\n\010ca" +
+      "tegory\030\005 \001(\0162\027.warmup.type.Categories\022\013\n" +
+      "\003tag\030\006 \001(\t\".\n\016FindAllRequest\022\014\n\004size\030\001 \001" +
+      "(\005\022\016\n\006lastId\030\002 \001(\005\"\035\n\017FindByIdRequest\022\n\n" +
+      "\002id\030\001 \001(\003\"B\n\025FindByCategoryRequest\022)\n\010ca" +
+      "tegory\030\001 \001(\0162\027.warmup.type.Categories2\226\002" +
+      "\n\004Item\0228\n\004Save\022\033.warmup.service.SaveRequ" +
+      "est\032\023.warmup.entity.Item\022@\n\007FindAll\022\036.wa" +
+      "rmup.service.FindAllRequest\032\023.warmup.ent" +
+      "ity.Item0\001\022@\n\010FindById\022\037.warmup.service." +
+      "FindByIdRequest\032\023.warmup.entity.Item\022P\n\022" +
+      "FindItemByCategory\022%.warmup.service.Find" +
+      "ByCategoryRequest\032\023.warmup.entity.ItemB#" +
+      "\n!com.depromeet.warmup.grpc.serviceb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2440,7 +2972,7 @@ public final class ItemOuterClass {
     internal_static_warmup_service_SaveRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_warmup_service_SaveRequest_descriptor,
-        new java.lang.String[] { "Name", "Description", "ImageUrls", "Place", "Category", "Tag", });
+        new java.lang.String[] { "Name", "Description", "Image", "Place", "Category", "Tag", });
     internal_static_warmup_service_FindAllRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_warmup_service_FindAllRequest_fieldAccessorTable = new
@@ -2453,6 +2985,12 @@ public final class ItemOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_warmup_service_FindByIdRequest_descriptor,
         new java.lang.String[] { "Id", });
+    internal_static_warmup_service_FindByCategoryRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_warmup_service_FindByCategoryRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_warmup_service_FindByCategoryRequest_descriptor,
+        new java.lang.String[] { "Category", });
     com.depromeet.warmup.grpc.entity.ItemOuterClass.getDescriptor();
     com.depromeet.warmup.grpc.type.CategoryType.getDescriptor();
   }

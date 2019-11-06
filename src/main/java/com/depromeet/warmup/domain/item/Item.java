@@ -8,17 +8,22 @@ import com.depromeet.warmup.grpc.type.BarterStatusOuterClass;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table
 @Entity
 public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuterClass.Item> {
+
+    @Column(nullable = false)
+    @GeneratedValue
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -32,13 +37,15 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
 
     // TODO: User
 
-    // TODO: Images
+    @Column(nullable = false)
+    private String image;
 
     @Column(nullable = false)
     private String place;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String category;
+    private Category category;
 
     @Column(nullable = false)
     private String tag;
@@ -46,13 +53,16 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
     @Builder
     public Item(final String name,
                 final String description,
+                final List<String> image,
                 final String place,
-                final String category,
-                final String tag) {
+                final Category category,
+                final String tag,
+                final LocalDateTime createDate) {
         barterStatus = BarterStatus.WAIT;
 
         this.name = name;
         this.description = description;
+        this.image = String.join(",", image);
         this.place = place;
         this.category = category;
         this.tag = tag;
@@ -73,7 +83,11 @@ public class Item extends DateAuditEntity implements ProtobufConverter<ItemOuter
                 .setName(name)
                 .setDescription(description)
                 .setBarterStatus(barterStatus.toProtobuf())
-
+                .addAllImages(Arrays.stream(image.split(",")).collect(Collectors.toList()))
+                .setPlace(place)
+                .setCategory(category.toProtobuf())
+                .setTag(tag)
+                .setCreatedDate(getCreatedDateMillis())
                 .build();
     }
 }
