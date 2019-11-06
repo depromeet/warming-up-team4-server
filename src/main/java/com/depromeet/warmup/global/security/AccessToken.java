@@ -5,13 +5,16 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.TimeToLive;
 
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @RedisHash
 public class AccessToken {
@@ -45,6 +48,11 @@ public class AccessToken {
     }
 
     public long getUserId() {
+        // TODO: refactoring
+        if (Objects.isNull(decodedJWT)) {
+            decodedJWT = JWT.decode(token);
+        }
+
         return Long.parseLong(decodedJWT.getKeyId());
     }
 
@@ -57,5 +65,4 @@ public class AccessToken {
         return decodedJWT.getClaim(AccessToken.NICKNAME_CLAIM_KEY)
                 .asString();
     }
-
 }

@@ -101,8 +101,7 @@ public class DefaultJwtManager implements JwtManager<Authentication> {
                 .withKeyId(userObjectId)
                 .sign(algorithm);
 
-//        TODO:
-//        save(jwtId, token);
+        save(jwtId, token);
 
         return token;
     }
