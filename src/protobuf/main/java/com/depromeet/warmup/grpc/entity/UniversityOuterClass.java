@@ -31,11 +31,19 @@ public final class UniversityOuterClass {
         getNameBytes();
 
     /**
+     * <pre>
+     * 이메일 도메인 ex) test.com
+     * </pre>
+     *
      * <code>string emailDomain = 2;</code>
      * @return The emailDomain.
      */
     java.lang.String getEmailDomain();
     /**
+     * <pre>
+     * 이메일 도메인 ex) test.com
+     * </pre>
+     *
      * <code>string emailDomain = 2;</code>
      * @return The bytes for emailDomain.
      */
@@ -176,6 +184,10 @@ public final class UniversityOuterClass {
     public static final int EMAILDOMAIN_FIELD_NUMBER = 2;
     private volatile java.lang.Object emailDomain_;
     /**
+     * <pre>
+     * 이메일 도메인 ex) test.com
+     * </pre>
+     *
      * <code>string emailDomain = 2;</code>
      * @return The emailDomain.
      */
@@ -192,6 +204,10 @@ public final class UniversityOuterClass {
       }
     }
     /**
+     * <pre>
+     * 이메일 도메인 ex) test.com
+     * </pre>
+     *
      * <code>string emailDomain = 2;</code>
      * @return The bytes for emailDomain.
      */
@@ -610,6 +626,10 @@ public final class UniversityOuterClass {
 
       private java.lang.Object emailDomain_ = "";
       /**
+       * <pre>
+       * 이메일 도메인 ex) test.com
+       * </pre>
+       *
        * <code>string emailDomain = 2;</code>
        * @return The emailDomain.
        */
@@ -626,6 +646,10 @@ public final class UniversityOuterClass {
         }
       }
       /**
+       * <pre>
+       * 이메일 도메인 ex) test.com
+       * </pre>
+       *
        * <code>string emailDomain = 2;</code>
        * @return The bytes for emailDomain.
        */
@@ -643,6 +667,10 @@ public final class UniversityOuterClass {
         }
       }
       /**
+       * <pre>
+       * 이메일 도메인 ex) test.com
+       * </pre>
+       *
        * <code>string emailDomain = 2;</code>
        * @param value The emailDomain to set.
        * @return This builder for chaining.
@@ -658,6 +686,10 @@ public final class UniversityOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 이메일 도메인 ex) test.com
+       * </pre>
+       *
        * <code>string emailDomain = 2;</code>
        * @return This builder for chaining.
        */
@@ -668,6 +700,10 @@ public final class UniversityOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 이메일 도메인 ex) test.com
+       * </pre>
+       *
        * <code>string emailDomain = 2;</code>
        * @param value The bytes for emailDomain to set.
        * @return This builder for chaining.

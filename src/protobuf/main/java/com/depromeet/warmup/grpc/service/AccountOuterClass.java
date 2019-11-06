@@ -1610,11 +1610,19 @@ public final class AccountOuterClass {
     com.depromeet.warmup.grpc.entity.AuthenticationOuterClass.AuthenticationOrBuilder getAuthenticationOrBuilder();
 
     /**
+     * <pre>
+     * 인증 토큰
+     * </pre>
+     *
      * <code>string accessToken = 2;</code>
      * @return The accessToken.
      */
     java.lang.String getAccessToken();
     /**
+     * <pre>
+     * 인증 토큰
+     * </pre>
+     *
      * <code>string accessToken = 2;</code>
      * @return The bytes for accessToken.
      */
@@ -1744,6 +1752,10 @@ public final class AccountOuterClass {
     public static final int ACCESSTOKEN_FIELD_NUMBER = 2;
     private volatile java.lang.Object accessToken_;
     /**
+     * <pre>
+     * 인증 토큰
+     * </pre>
+     *
      * <code>string accessToken = 2;</code>
      * @return The accessToken.
      */
@@ -1760,6 +1772,10 @@ public final class AccountOuterClass {
       }
     }
     /**
+     * <pre>
+     * 인증 토큰
+     * </pre>
+     *
      * <code>string accessToken = 2;</code>
      * @return The bytes for accessToken.
      */
@@ -2230,6 +2246,10 @@ public final class AccountOuterClass {
 
       private java.lang.Object accessToken_ = "";
       /**
+       * <pre>
+       * 인증 토큰
+       * </pre>
+       *
        * <code>string accessToken = 2;</code>
        * @return The accessToken.
        */
@@ -2246,6 +2266,10 @@ public final class AccountOuterClass {
         }
       }
       /**
+       * <pre>
+       * 인증 토큰
+       * </pre>
+       *
        * <code>string accessToken = 2;</code>
        * @return The bytes for accessToken.
        */
@@ -2263,6 +2287,10 @@ public final class AccountOuterClass {
         }
       }
       /**
+       * <pre>
+       * 인증 토큰
+       * </pre>
+       *
        * <code>string accessToken = 2;</code>
        * @param value The accessToken to set.
        * @return This builder for chaining.
@@ -2278,6 +2306,10 @@ public final class AccountOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 인증 토큰
+       * </pre>
+       *
        * <code>string accessToken = 2;</code>
        * @return This builder for chaining.
        */
@@ -2288,6 +2320,10 @@ public final class AccountOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 인증 토큰
+       * </pre>
+       *
        * <code>string accessToken = 2;</code>
        * @param value The bytes for accessToken to set.
        * @return This builder for chaining.
@@ -2361,12 +2397,12 @@ public final class AccountOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string VerificationCode = 1;</code>
+     * <code>string verificationCode = 1;</code>
      * @return The verificationCode.
      */
     java.lang.String getVerificationCode();
     /**
-     * <code>string VerificationCode = 1;</code>
+     * <code>string verificationCode = 1;</code>
      * @return The bytes for verificationCode.
      */
     com.google.protobuf.ByteString
@@ -2459,7 +2495,7 @@ public final class AccountOuterClass {
     public static final int VERIFICATIONCODE_FIELD_NUMBER = 1;
     private volatile java.lang.Object verificationCode_;
     /**
-     * <code>string VerificationCode = 1;</code>
+     * <code>string verificationCode = 1;</code>
      * @return The verificationCode.
      */
     public java.lang.String getVerificationCode() {
@@ -2475,7 +2511,7 @@ public final class AccountOuterClass {
       }
     }
     /**
-     * <code>string VerificationCode = 1;</code>
+     * <code>string verificationCode = 1;</code>
      * @return The bytes for verificationCode.
      */
     public com.google.protobuf.ByteString
@@ -2796,7 +2832,7 @@ public final class AccountOuterClass {
 
       private java.lang.Object verificationCode_ = "";
       /**
-       * <code>string VerificationCode = 1;</code>
+       * <code>string verificationCode = 1;</code>
        * @return The verificationCode.
        */
       public java.lang.String getVerificationCode() {
@@ -2812,7 +2848,7 @@ public final class AccountOuterClass {
         }
       }
       /**
-       * <code>string VerificationCode = 1;</code>
+       * <code>string verificationCode = 1;</code>
        * @return The bytes for verificationCode.
        */
       public com.google.protobuf.ByteString
@@ -2829,7 +2865,7 @@ public final class AccountOuterClass {
         }
       }
       /**
-       * <code>string VerificationCode = 1;</code>
+       * <code>string verificationCode = 1;</code>
        * @param value The verificationCode to set.
        * @return This builder for chaining.
        */
@@ -2844,7 +2880,7 @@ public final class AccountOuterClass {
         return this;
       }
       /**
-       * <code>string VerificationCode = 1;</code>
+       * <code>string verificationCode = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearVerificationCode() {
@@ -2854,7 +2890,7 @@ public final class AccountOuterClass {
         return this;
       }
       /**
-       * <code>string VerificationCode = 1;</code>
+       * <code>string verificationCode = 1;</code>
        * @param value The bytes for verificationCode to set.
        * @return This builder for chaining.
        */
@@ -2959,7 +2995,7 @@ public final class AccountOuterClass {
       "il\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\\\n\016SignInResp" +
       "onse\0225\n\016authentication\030\001 \001(\0132\035.warmup.en" +
       "tity.Authentication\022\023\n\013accessToken\030\002 \001(\t" +
-      "\"/\n\023VerificationRequest\022\030\n\020VerificationC" +
+      "\"/\n\023VerificationRequest\022\030\n\020verificationC" +
       "ode\030\001 \001(\t2\341\001\n\007Account\022F\n\006SignUp\022\035.warmup" +
       ".service.SignUpRequest\032\035.warmup.entity.A" +
       "uthentication\022G\n\006SignIn\022\035.warmup.service" +

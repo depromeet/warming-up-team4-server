@@ -19,11 +19,19 @@ public final class ChatOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The message.
      */
     java.lang.String getMessage();
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The bytes for message.
      */
@@ -31,6 +39,10 @@ public final class ChatOuterClass {
         getMessageBytes();
 
     /**
+     * <pre>
+     * 받는 사람 PK
+     * </pre>
+     *
      * <code>int64 to = 2;</code>
      * @return The to.
      */
@@ -128,6 +140,10 @@ public final class ChatOuterClass {
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private volatile java.lang.Object message_;
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The message.
      */
@@ -144,6 +160,10 @@ public final class ChatOuterClass {
       }
     }
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The bytes for message.
      */
@@ -164,6 +184,10 @@ public final class ChatOuterClass {
     public static final int TO_FIELD_NUMBER = 2;
     private long to_;
     /**
+     * <pre>
+     * 받는 사람 PK
+     * </pre>
+     *
      * <code>int64 to = 2;</code>
      * @return The to.
      */
@@ -493,6 +517,10 @@ public final class ChatOuterClass {
 
       private java.lang.Object message_ = "";
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @return The message.
        */
@@ -509,6 +537,10 @@ public final class ChatOuterClass {
         }
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @return The bytes for message.
        */
@@ -526,6 +558,10 @@ public final class ChatOuterClass {
         }
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @param value The message to set.
        * @return This builder for chaining.
@@ -541,6 +577,10 @@ public final class ChatOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @return This builder for chaining.
        */
@@ -551,6 +591,10 @@ public final class ChatOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @param value The bytes for message to set.
        * @return This builder for chaining.
@@ -569,6 +613,10 @@ public final class ChatOuterClass {
 
       private long to_ ;
       /**
+       * <pre>
+       * 받는 사람 PK
+       * </pre>
+       *
        * <code>int64 to = 2;</code>
        * @return The to.
        */
@@ -576,6 +624,10 @@ public final class ChatOuterClass {
         return to_;
       }
       /**
+       * <pre>
+       * 받는 사람 PK
+       * </pre>
+       *
        * <code>int64 to = 2;</code>
        * @param value The to to set.
        * @return This builder for chaining.
@@ -587,6 +639,10 @@ public final class ChatOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 받는 사람 PK
+       * </pre>
+       *
        * <code>int64 to = 2;</code>
        * @return This builder for chaining.
        */
@@ -654,11 +710,19 @@ public final class ChatOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The message.
      */
     java.lang.String getMessage();
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The bytes for message.
      */
@@ -666,6 +730,10 @@ public final class ChatOuterClass {
         getMessageBytes();
 
     /**
+     * <pre>
+     * 보내는 사람 PK
+     * </pre>
+     *
      * <code>int64 from = 2;</code>
      * @return The from.
      */
@@ -763,6 +831,10 @@ public final class ChatOuterClass {
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private volatile java.lang.Object message_;
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The message.
      */
@@ -779,6 +851,10 @@ public final class ChatOuterClass {
       }
     }
     /**
+     * <pre>
+     * 메시지 내용
+     * </pre>
+     *
      * <code>string message = 1;</code>
      * @return The bytes for message.
      */
@@ -799,6 +875,10 @@ public final class ChatOuterClass {
     public static final int FROM_FIELD_NUMBER = 2;
     private long from_;
     /**
+     * <pre>
+     * 보내는 사람 PK
+     * </pre>
+     *
      * <code>int64 from = 2;</code>
      * @return The from.
      */
@@ -1128,6 +1208,10 @@ public final class ChatOuterClass {
 
       private java.lang.Object message_ = "";
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @return The message.
        */
@@ -1144,6 +1228,10 @@ public final class ChatOuterClass {
         }
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @return The bytes for message.
        */
@@ -1161,6 +1249,10 @@ public final class ChatOuterClass {
         }
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @param value The message to set.
        * @return This builder for chaining.
@@ -1176,6 +1268,10 @@ public final class ChatOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @return This builder for chaining.
        */
@@ -1186,6 +1282,10 @@ public final class ChatOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 메시지 내용
+       * </pre>
+       *
        * <code>string message = 1;</code>
        * @param value The bytes for message to set.
        * @return This builder for chaining.
@@ -1204,6 +1304,10 @@ public final class ChatOuterClass {
 
       private long from_ ;
       /**
+       * <pre>
+       * 보내는 사람 PK
+       * </pre>
+       *
        * <code>int64 from = 2;</code>
        * @return The from.
        */
@@ -1211,6 +1315,10 @@ public final class ChatOuterClass {
         return from_;
       }
       /**
+       * <pre>
+       * 보내는 사람 PK
+       * </pre>
+       *
        * <code>int64 from = 2;</code>
        * @param value The from to set.
        * @return This builder for chaining.
@@ -1222,6 +1330,10 @@ public final class ChatOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 보내는 사람 PK
+       * </pre>
+       *
        * <code>int64 from = 2;</code>
        * @return This builder for chaining.
        */

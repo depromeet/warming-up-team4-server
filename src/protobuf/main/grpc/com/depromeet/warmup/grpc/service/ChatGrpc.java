@@ -86,6 +86,9 @@ public final class ChatGrpc {
   public static abstract class ChatImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     * 채팅 참여
+     * </pre>
      */
     public io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest> join(
         io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse> responseObserver) {
@@ -124,6 +127,9 @@ public final class ChatGrpc {
     }
 
     /**
+     * <pre>
+     * 채팅 참여
+     * </pre>
      */
     public io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatRequest> join(
         io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.service.ChatOuterClass.ChatResponse> responseObserver) {

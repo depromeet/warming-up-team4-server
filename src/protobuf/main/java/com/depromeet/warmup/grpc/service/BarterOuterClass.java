@@ -19,23 +19,39 @@ public final class BarterOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 요청하는 아이템 PK
+     * </pre>
+     *
      * <code>int64 fromItemId = 1;</code>
      * @return The fromItemId.
      */
     long getFromItemId();
 
     /**
+     * <pre>
+     * 교환 원하는 아이템 PK
+     * </pre>
+     *
      * <code>int64 toItemId = 2;</code>
      * @return The toItemId.
      */
     long getToItemId();
 
     /**
+     * <pre>
+     * 교환 요청할 때 메시지
+     * </pre>
+     *
      * <code>string message = 3;</code>
      * @return The message.
      */
     java.lang.String getMessage();
     /**
+     * <pre>
+     * 교환 요청할 때 메시지
+     * </pre>
+     *
      * <code>string message = 3;</code>
      * @return The bytes for message.
      */
@@ -139,6 +155,10 @@ public final class BarterOuterClass {
     public static final int FROMITEMID_FIELD_NUMBER = 1;
     private long fromItemId_;
     /**
+     * <pre>
+     * 요청하는 아이템 PK
+     * </pre>
+     *
      * <code>int64 fromItemId = 1;</code>
      * @return The fromItemId.
      */
@@ -149,6 +169,10 @@ public final class BarterOuterClass {
     public static final int TOITEMID_FIELD_NUMBER = 2;
     private long toItemId_;
     /**
+     * <pre>
+     * 교환 원하는 아이템 PK
+     * </pre>
+     *
      * <code>int64 toItemId = 2;</code>
      * @return The toItemId.
      */
@@ -159,6 +183,10 @@ public final class BarterOuterClass {
     public static final int MESSAGE_FIELD_NUMBER = 3;
     private volatile java.lang.Object message_;
     /**
+     * <pre>
+     * 교환 요청할 때 메시지
+     * </pre>
+     *
      * <code>string message = 3;</code>
      * @return The message.
      */
@@ -175,6 +203,10 @@ public final class BarterOuterClass {
       }
     }
     /**
+     * <pre>
+     * 교환 요청할 때 메시지
+     * </pre>
+     *
      * <code>string message = 3;</code>
      * @return The bytes for message.
      */
@@ -532,6 +564,10 @@ public final class BarterOuterClass {
 
       private long fromItemId_ ;
       /**
+       * <pre>
+       * 요청하는 아이템 PK
+       * </pre>
+       *
        * <code>int64 fromItemId = 1;</code>
        * @return The fromItemId.
        */
@@ -539,6 +575,10 @@ public final class BarterOuterClass {
         return fromItemId_;
       }
       /**
+       * <pre>
+       * 요청하는 아이템 PK
+       * </pre>
+       *
        * <code>int64 fromItemId = 1;</code>
        * @param value The fromItemId to set.
        * @return This builder for chaining.
@@ -550,6 +590,10 @@ public final class BarterOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 요청하는 아이템 PK
+       * </pre>
+       *
        * <code>int64 fromItemId = 1;</code>
        * @return This builder for chaining.
        */
@@ -562,6 +606,10 @@ public final class BarterOuterClass {
 
       private long toItemId_ ;
       /**
+       * <pre>
+       * 교환 원하는 아이템 PK
+       * </pre>
+       *
        * <code>int64 toItemId = 2;</code>
        * @return The toItemId.
        */
@@ -569,6 +617,10 @@ public final class BarterOuterClass {
         return toItemId_;
       }
       /**
+       * <pre>
+       * 교환 원하는 아이템 PK
+       * </pre>
+       *
        * <code>int64 toItemId = 2;</code>
        * @param value The toItemId to set.
        * @return This builder for chaining.
@@ -580,6 +632,10 @@ public final class BarterOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 교환 원하는 아이템 PK
+       * </pre>
+       *
        * <code>int64 toItemId = 2;</code>
        * @return This builder for chaining.
        */
@@ -592,6 +648,10 @@ public final class BarterOuterClass {
 
       private java.lang.Object message_ = "";
       /**
+       * <pre>
+       * 교환 요청할 때 메시지
+       * </pre>
+       *
        * <code>string message = 3;</code>
        * @return The message.
        */
@@ -608,6 +668,10 @@ public final class BarterOuterClass {
         }
       }
       /**
+       * <pre>
+       * 교환 요청할 때 메시지
+       * </pre>
+       *
        * <code>string message = 3;</code>
        * @return The bytes for message.
        */
@@ -625,6 +689,10 @@ public final class BarterOuterClass {
         }
       }
       /**
+       * <pre>
+       * 교환 요청할 때 메시지
+       * </pre>
+       *
        * <code>string message = 3;</code>
        * @param value The message to set.
        * @return This builder for chaining.
@@ -640,6 +708,10 @@ public final class BarterOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 교환 요청할 때 메시지
+       * </pre>
+       *
        * <code>string message = 3;</code>
        * @return This builder for chaining.
        */
@@ -650,6 +722,10 @@ public final class BarterOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 교환 요청할 때 메시지
+       * </pre>
+       *
        * <code>string message = 3;</code>
        * @param value The bytes for message to set.
        * @return This builder for chaining.
@@ -723,6 +799,10 @@ public final class BarterOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 거래 PK
+     * </pre>
+     *
      * <code>int64 barterRequestId = 1;</code>
      * @return The barterRequestId.
      */
@@ -813,6 +893,10 @@ public final class BarterOuterClass {
     public static final int BARTERREQUESTID_FIELD_NUMBER = 1;
     private long barterRequestId_;
     /**
+     * <pre>
+     * 거래 PK
+     * </pre>
+     *
      * <code>int64 barterRequestId = 1;</code>
      * @return The barterRequestId.
      */
@@ -1125,6 +1209,10 @@ public final class BarterOuterClass {
 
       private long barterRequestId_ ;
       /**
+       * <pre>
+       * 거래 PK
+       * </pre>
+       *
        * <code>int64 barterRequestId = 1;</code>
        * @return The barterRequestId.
        */
@@ -1132,6 +1220,10 @@ public final class BarterOuterClass {
         return barterRequestId_;
       }
       /**
+       * <pre>
+       * 거래 PK
+       * </pre>
+       *
        * <code>int64 barterRequestId = 1;</code>
        * @param value The barterRequestId to set.
        * @return This builder for chaining.
@@ -1143,6 +1235,10 @@ public final class BarterOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * 거래 PK
+       * </pre>
+       *
        * <code>int64 barterRequestId = 1;</code>
        * @return This builder for chaining.
        */
