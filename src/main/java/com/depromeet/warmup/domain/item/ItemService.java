@@ -22,4 +22,9 @@ public class ItemService {
     public Mono<Item> findById(final long id) {
         return Mono.justOrEmpty(itemRepository.findById(id));
     }
+
+    public Flux<Item> findItemByCategory(final Category category) {
+        return Flux.fromIterable(itemRepository.findItemByCategory(category));
+    }
+
 }

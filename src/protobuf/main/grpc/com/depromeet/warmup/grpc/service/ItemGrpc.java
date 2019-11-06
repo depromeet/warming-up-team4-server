@@ -18,7 +18,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.25.0)",
+    value = "by gRPC proto compiler (version 1.24.1)",
     comments = "Source: Item.proto")
 public final class ItemGrpc {
 
@@ -120,6 +120,37 @@ public final class ItemGrpc {
     return getFindByIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest,
+      com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> getFindItemByCategoryMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "FindItemByCategory",
+      requestType = com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.class,
+      responseType = com.depromeet.warmup.grpc.entity.ItemOuterClass.Item.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest,
+      com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> getFindItemByCategoryMethod() {
+    io.grpc.MethodDescriptor<com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest, com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> getFindItemByCategoryMethod;
+    if ((getFindItemByCategoryMethod = ItemGrpc.getFindItemByCategoryMethod) == null) {
+      synchronized (ItemGrpc.class) {
+        if ((getFindItemByCategoryMethod = ItemGrpc.getFindItemByCategoryMethod) == null) {
+          ItemGrpc.getFindItemByCategoryMethod = getFindItemByCategoryMethod =
+              io.grpc.MethodDescriptor.<com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest, com.depromeet.warmup.grpc.entity.ItemOuterClass.Item>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "FindItemByCategory"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.depromeet.warmup.grpc.entity.ItemOuterClass.Item.getDefaultInstance()))
+              .setSchemaDescriptor(new ItemMethodDescriptorSupplier("FindItemByCategory"))
+              .build();
+        }
+      }
+    }
+    return getFindItemByCategoryMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -177,6 +208,16 @@ public final class ItemGrpc {
       asyncUnimplementedUnaryCall(getFindByIdMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * 카테고리별 조회
+     * </pre>
+     */
+    public void findItemByCategory(com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest request,
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindItemByCategoryMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -200,6 +241,13 @@ public final class ItemGrpc {
                 com.depromeet.warmup.grpc.service.ItemOuterClass.FindByIdRequest,
                 com.depromeet.warmup.grpc.entity.ItemOuterClass.Item>(
                   this, METHODID_FIND_BY_ID)))
+          .addMethod(
+            getFindItemByCategoryMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest,
+                com.depromeet.warmup.grpc.entity.ItemOuterClass.Item>(
+                  this, METHODID_FIND_ITEM_BY_CATEGORY)))
           .build();
     }
   }
@@ -254,6 +302,17 @@ public final class ItemGrpc {
       asyncUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * 카테고리별 조회
+     * </pre>
+     */
+    public void findItemByCategory(com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest request,
+        io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindItemByCategoryMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -304,6 +363,16 @@ public final class ItemGrpc {
       return blockingUnaryCall(
           getChannel(), getFindByIdMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     * 카테고리별 조회
+     * </pre>
+     */
+    public com.depromeet.warmup.grpc.entity.ItemOuterClass.Item findItemByCategory(com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getFindItemByCategoryMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -345,11 +414,23 @@ public final class ItemGrpc {
       return futureUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * 카테고리별 조회
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item> findItemByCategory(
+        com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindItemByCategoryMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SAVE = 0;
   private static final int METHODID_FIND_ALL = 1;
   private static final int METHODID_FIND_BY_ID = 2;
+  private static final int METHODID_FIND_ITEM_BY_CATEGORY = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -378,6 +459,10 @@ public final class ItemGrpc {
           break;
         case METHODID_FIND_BY_ID:
           serviceImpl.findById((com.depromeet.warmup.grpc.service.ItemOuterClass.FindByIdRequest) request,
+              (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item>) responseObserver);
+          break;
+        case METHODID_FIND_ITEM_BY_CATEGORY:
+          serviceImpl.findItemByCategory((com.depromeet.warmup.grpc.service.ItemOuterClass.FindByCategoryRequest) request,
               (io.grpc.stub.StreamObserver<com.depromeet.warmup.grpc.entity.ItemOuterClass.Item>) responseObserver);
           break;
         default:
@@ -444,6 +529,7 @@ public final class ItemGrpc {
               .addMethod(getSaveMethod())
               .addMethod(getFindAllMethod())
               .addMethod(getFindByIdMethod())
+              .addMethod(getFindItemByCategoryMethod())
               .build();
         }
       }

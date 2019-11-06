@@ -39,6 +39,7 @@ public class Authentication extends AutoPrimaryEntity
     @Column(nullable = false)
     private String password;
 
+    @Getter
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "owner", referencedColumnName = "id")
     private User user;
